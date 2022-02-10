@@ -2007,8 +2007,10 @@ body.subpage.single .intro-galleries.half .rightcol{width:100%;float:left}
 .collapsible.active a{color:#cff998;display:inline-block;text-decoration:underline}
 .collapsible.active a:hover{color:#e5eadd}
 #points-of-interest{margin-top:40px}
-#points-of-interest .poi-iframe-map,#points-of-interest .poi-iframe-map.inside{min-height:450px !important}
+#points-of-interest .poi-iframe-map,#points-of-interest .poi-iframe-map.inside{min-height:450px !important;height:600px}
 #points-of-interest .poi-iframe-map iframe,#points-of-interest .poi-iframe-map.inside iframe{width:100%;height:100%}
+#points-of-interest-inside .poi-iframe-map,#points-of-interest-inside .poi-iframe-map.inside{min-height:450px !important}
+#points-of-interest-inside .poi-iframe-map iframe,#points-of-interest-inside .poi-iframe-map.inside iframe{width:100%;height:100%}
 #section-checkin.section-content .flexwrap,#points-of-interest-inside.section-content .flexwrap{padding:8px}
 #section-checkin.section-content .col-left,#section-checkin.section-content .col-right,#points-of-interest-inside.section-content .col-left,#points-of-interest-inside.section-content .col-right{width:100%;position:relative}
 #section-checkin.section-content .flex-content,#points-of-interest-inside.section-content .flex-content{width:100%;float:left;position:relative;padding:8px;color:#FFF}
@@ -2388,7 +2390,7 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 .section-contact-details .address p:last-child{margin-bottom:0}
 .section-contact-details .address{position:relative}
 .section-contact-details .address.right,.section-contact-details .address.right a{color:#000}
-.section-contact-details .map{width:100%;float:left;position:relative;margin-bottom:20px}
+.section-contact-details .map{width:100%;float:left;position:relative;margin-bottom:20px;height:600px}
 .section-contact-details .map iframe{width:calc(100% - 30px) !important;height:100% !important;position:absolute;top:0;left:15px;z-index:5}
 .section-contact-details .map img.helper{display:block;width:100%;height:auto;float:left}
 .section-contact-details .leftcol,.section-contact-details .rightcol{width:100%;float:left}
@@ -2409,7 +2411,7 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 .section-contact-details .contact-info-address{display:block;text-transform:uppercase;line-height:1.4}
 .section-contact-details .contact-info-phone,.section-contact-details .contact-info-email{display:inline-block;margin:0 20px;position:relative}
 .section-contact-details .contact-info-phone i,.section-contact-details .contact-info-phone svg,.section-contact-details .contact-info-email i,.section-contact-details .contact-info-email svg{display:inline-block;margin-right:2px}
-.section-contact-details .contact-info-phone a,.section-contact-details .contact-info-email a{color:#FFF;text-decoration:none}
+.section-contact-details .contact-info-phone a,.section-contact-details .contact-info-email a{color:#000;text-decoration:none}
 .section-contact-details .contact-info-phone a:hover,.section-contact-details .contact-info-email a:hover{color:#ba0d30}
 .section-contact-details .contact-info-phone i,.section-contact-details .contact-info-phone svg{-webkit-transform:rotate(90deg);transform:rotate(90deg)}
 .section-contact-details .c1{background:#000;color:#FFF;padding:30px;text-align:center}

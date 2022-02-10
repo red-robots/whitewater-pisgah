@@ -3301,6 +3301,7 @@ body.subpage.single {
 	.poi-iframe-map,
 	.poi-iframe-map.inside {
 		min-height: 450px !important;
+		height: 600px;
 		iframe {
 			width: 100%;
 			height: 100%;
@@ -3308,7 +3309,14 @@ body.subpage.single {
 	}
 }
 #points-of-interest-inside {
-
+	.poi-iframe-map,
+	.poi-iframe-map.inside {
+		min-height: 450px !important;
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	}
 }
 #section-checkin.section-content,
 #points-of-interest-inside.section-content {
@@ -5824,6 +5832,7 @@ body.single-instructions {
 		float: left;
 		position: relative;
 		margin-bottom: 20px;
+		height: 600px;
 		@include tab {
 			margin-bottom: 0;
 			height: 100%;
@@ -5971,7 +5980,7 @@ body.single-instructions {
 			margin-right: 2px;
 		}
 		a {
-			color: #FFF;
+			color: #000;
 			text-decoration: none;
 			&:hover {
 				color: $red;

@@ -147,9 +147,9 @@ $response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=
 					$divclass .= ($i % 2) ? ' odd':' even';
 					$divclass .= ($i==1) ? ' first':'';
 					$catId = $post['category']['0'];
-					echo '<pre style="background-color: #fff;">';
-					print_r($post);
-					echo '<?pre>';
+					// echo '<pre style="background-color: #fff;">';
+					// print_r($post);
+					// echo '<?pre>';
 					include( get_stylesheet_directory() . '/parts/content-post-rest.php' );
 					?>
 				<?php

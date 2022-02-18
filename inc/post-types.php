@@ -160,14 +160,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-book-alt',
             'supports'  => array('title','editor')
         ),
-        array(
-            'post_type' => 'job',
-            'menu_name' => 'Jobs',
-            'plural'    => 'Jobs',
-            'single'    => 'Job',
-            'menu_icon' => 'dashicons-index-card',
-            'supports'  => array('title','editor')
-        ),
+        // array(
+        //     'post_type' => 'job',
+        //     'menu_name' => 'Jobs',
+        //     'plural'    => 'Jobs',
+        //     'single'    => 'Job',
+        //     'menu_icon' => 'dashicons-index-card',
+        //     'supports'  => array('title','editor')
+        // ),
         array(
             'post_type' => 'faqs',
             'menu_name' => 'FAQs',

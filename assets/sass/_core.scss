@@ -6270,6 +6270,7 @@ body.single-instructions {
 	.fs-wrap .fs-label-wrap {
 		width: 100%!important;
 	}
+
 }
 
 
@@ -9742,6 +9743,19 @@ body.logged-in.admin-bar {
 			.select-wrap {
 				margin-bottom: 10px;
 			}
+		}
+	}
+	.flexwrapfilters {
+		width: 100%;;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		@media screen and (min-width: $tabwidth) {
+			flex-direction: row;
+		}
+		.filter-label {
+			width: auto;
 		}
 	}
 }

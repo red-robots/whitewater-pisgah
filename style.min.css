@@ -2983,6 +2983,8 @@ body.logged-in.admin-bar .job-info-page .text-centered-section{margin-top:-5px}
 .filter-wrapper.filterstyle .filter-label span{display:block;width:100%;text-align:center;padding:0 20px}
 .filter-wrapper.filterstyle .filter-label .resetLink{display:block;color:#FFF;text-decoration:none;font-size:12px;line-height:1.1}
 .filter-wrapper.filterstyle .select-wrap{width:26.5%}
+.filter-wrapper.filterstyle .flexwrapfilters{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.filter-wrapper.filterstyle .flexwrapfilters .filter-label{width:auto}
 .employment-page .filter-wrapper{padding-bottom:0;margin-bottom:30px}
 .employment-page .filter-message{width:100%;float:left}
 .employment-page .filter-message #fm{font-size:15px;margin-bottom:15px}
@@ -3870,7 +3872,8 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 .site-footer #copyright .col-left{width:40%}
 .site-footer #copyright .col-right{width:60%}
 .modal.customModal .modal-body{padding:0 5vw 3vw}
-}@media screen and (min-width:820px){.double-filter-wrapper .inside{width:45%;float:left;padding:2.5%}
+}@media screen and (min-width:820px){.filter-wrapper.filterstyle .flexwrapfilters{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.double-filter-wrapper .inside{width:45%;float:left;padding:2.5%}
 .double-filter-wrapper .filter-wrapper .select,.double-filter-wrapper .filter-wrapper .select-wrap.align-middle{width:100%}
 }@media(min-width:960px){.topinfo span.el{font-size:12px}
 #banner.taxonomy-banner .static-banner{height:650px}

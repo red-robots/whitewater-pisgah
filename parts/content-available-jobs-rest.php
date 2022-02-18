@@ -243,14 +243,14 @@ if( $posts->have_posts() ) { ?>
 				<div id="filterWap" class="wrapper">
 					
 					<div class="filter-inner">
-						<div class="flexwrap">
+						<div class="flexwrapfilters">
 
 							<div class="filter-label">
 								<div class="inside"><span>Filter By</span></div>
 							</div>
 
 							
-							<?php if( !empty($bodyLocation) ) { ?>
+							<!-- <?php if( !empty($bodyLocation) ) { ?>
 								<div class="filter-group" data-filter-group="job-location">
 									<div class="select-wrap-man ">
 										<div class="facetwp-facet-man  facetwp-type-fselect-man">
@@ -263,7 +263,7 @@ if( $posts->have_posts() ) { ?>
 										</div> 
 									</div>
 								</div>
-							<?php } ?>
+							<?php } ?> -->
 							<?php if( !empty($bodyType) ) { ?>
 								<div class="filter-group" data-filter-group="job-type">
 									<div class="select-wrap-man ">
@@ -278,7 +278,7 @@ if( $posts->have_posts() ) { ?>
 									</div>
 								</div>
 							<?php } ?>
-							<?php if( !empty($bodyDepartment) ) { ?>
+							<!-- <?php if( !empty($bodyDepartment) ) { ?>
 								<div class="filter-group" data-filter-group="job-department">
 									<div class="select-wrap-man ">
 										<div class="facetwp-facet-man  facetwp-type-fselect-man">
@@ -291,11 +291,11 @@ if( $posts->have_posts() ) { ?>
 										</div> 
 									</div>
 								</div>
-							<?php } ?>
+							<?php } ?> -->
 
-							<div class="button-group">
+							<!-- <div class="button-group">
 								<button class="is_checked">asdffdf</button>
-							</div>
+							</div> -->
 
 
 							<!-- <?php if ( do_shortcode('[facetwp facet="job_locations"]') ) { ?>

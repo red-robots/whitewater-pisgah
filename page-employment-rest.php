@@ -27,7 +27,7 @@ $defaultLocation = get_default_job_location();
 
 		<?php get_template_part("parts/subpage-tabs"); ?>
 
-		<?php get_template_part("parts/content-available-jobs") ?>
+		<?php get_template_part("parts/content-available-jobs-rest") ?>
 
 		<?php
 			$icon1 = get_field("icon1");

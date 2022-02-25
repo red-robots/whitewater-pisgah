@@ -36,9 +36,9 @@ if($show_content_only) {
 	get_template_part("parts/subpage-banner");
 	$post_id = get_the_ID(); 
 	$pBtn = get_field('button');
-			echo '<pre>';
-			print_r($pBtn);
-			echo '</pre>';
+			// echo '<pre>';
+			// print_r($pBtn);
+			// echo '</pre>';
 	?>
 		
 	<div id="primary" class="content-area-full content-default single-post <?php echo $has_hero;?> post-type-<?php echo $post_type;?>">

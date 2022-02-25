@@ -2366,14 +2366,14 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 .section-text-and-image{width:100%;float:left}
 .section-text-and-image .leftcol,.section-text-and-image .rightcol{width:100%;position:relative}
 .section-text-and-image .leftcol{background:#f2f2f2}
-.section-text-and-image .leftcol .wrap{max-width:1200px;width:100%;margin:0 auto;padding:50px 20px}
+.section-text-and-image .leftcol .wrap{width:100%;margin:0 auto;padding:50px 20px}
 .section-text-and-image .leftcol h2,.section-text-and-image .leftcol .coltitle{font-family:"Lato",sans-serif;font-weight:400;font-size:25px;line-height:1.2;text-transform:uppercase;letter-spacing:2px;margin:10px 0 15px}
 .section-text-and-image .leftcol .icon-col{text-align:center}
 .section-text-and-image .leftcol .icon-col span{display:inline-block;width:40px;height:40px;background-size:100%;background-position:center;background-repeat:no-repeat}
 .section-text-and-image .flexwrap{position:relative}
 .section-text-and-image .rightcol.videoCol{width:100%;height:100%;float:left;overflow:hidden;position:relative;background:#000}
-.section-text-and-image .rightcol.videoCol .inside{max-width:1200px;width:100%;margin:0 auto}
-.section-text-and-image .rightcol.videoCol .iframe-wrap{width:100%;height:100%;position:absolute;top:0;left:0;z-index:5}
+.section-text-and-image .rightcol.videoCol .inside{width:100%;margin:0 auto}
+.section-text-and-image .rightcol.videoCol .iframe-wrap{width:100%;z-index:5}
 .section-text-and-image .rightcol.videoCol .iframe-wrap iframe{width:100% !important;height:100% !important}
 .section-text-and-image .rightcol.videoCol img.placeholder{width:100%;height:auto;float:left}
 .section-text-and-image.half .leftcol{width:100%;float:left}
@@ -2382,6 +2382,10 @@ body.single-instructions #primary #section-faqs{padding-top:60px;padding-bottom:
 .section-text-and-image.half .rightcol{width:100%;float:left}
 .section-text-and-image.half .rightcol.videoCol{background:transparent}
 .section-text-and-image.half .rightcol.videoCol .inside{width:100%;float:left;position:relative;background:#000}
+.section-text-and-image.half .rightcol .iframe-wrap{width:100%}
+.section-text-and-image.half .rightcol .iframe-wrap iframe{border:0;width:100%}
+[style*="--aspect-ratio"]>:first-child{width:100%}
+[style*="--aspect-ratio"]>img{height:auto}
 .section-contact-details .inner-wrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .section-contact-details .address{color:#FFF;font-size:15px;text-align:center}
 .section-contact-details .address .inside{width:100%;height:100%;background:#000}
@@ -3887,7 +3891,6 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 #about-instructor.half .text{width:75%}
 .section-text-and-image.half .leftcol{width:35%}
 .section-text-and-image.half .rightcol{width:65%;padding-left:15px}
-.section-text-and-image.half .rightcol.videoCol{position:absolute;top:0;right:0}
 .section-text-and-image.half .rightcol.videoCol .inside{height:100%}
 .archive-posts-wrap .entry{width:50%}
 .store-listings .product-brands .brand{width:33.33%;height:80px}

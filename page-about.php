@@ -30,7 +30,7 @@ get_header(); ?>
 			<section class="section-text-and-image <?php echo $section_class ?>">
 				<div class="flexwrap">
 					<?php if ($mission) { ?>
-					<div class="leftcol">
+					<div class="leftcol ">
 						<div class="wrap">
 							<div class="inner"><?php echo $mission; ?></div>
 						</div>
@@ -38,17 +38,15 @@ get_header(); ?>
 					<?php } ?>
 
 					<?php if ($video) { ?>
-					<div class="rightcol videoCol">
+					<div  id="posp" class="rightcol videoCol ">
 						<div class="inside">
-							<div class="iframe-wrap"><?php echo $video; ?></div>
-							<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="placeholder">
+							<div  class="iframe-wrap"><?php echo $video; ?></div>
 						</div>
 					</div>	
 					<?php } ?>
 				</div>
 			</section>	
 			<?php } ?>
-
 		<?php endwhile; ?>
 
 	</main><!-- #main -->

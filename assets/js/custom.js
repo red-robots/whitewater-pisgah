@@ -963,5 +963,12 @@ jQuery(document).ready(function ($) {
       $('.message-div').addClass('noshow');
       $('.message-div').removeClass('show');
     }
-  });
+  }); //find the height of the internal page
+
+  var the_height = document.getElementById('iframe').contentWindow.document.body.scrollHeight; //change the height of the iframe
+
+  document.getElementById('iframe').height = the_height; //document.getElementById('poop').style.height = the_height;
+
+  $('#poop').height(the_height); //document.getElementById('poop').addClass('akshdfj');
+  //alert('This iframe should be ' + the_height + ' pixels in height to avoid scrolling.');
 }); // END #####################################    END

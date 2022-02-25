@@ -3211,6 +3211,7 @@ body.page-template-page-group-events .noButtonTop #pageTabs{top:5px}
 .select2-search--dropdown{position:relative;top:-3px}
 .facetwp-facet-race_event_status .fs-option-label{text-transform:capitalize}
 .race-series-page .filter-wrapper{padding-top:45px;padding-bottom:30px}
+body.page-template-page-public-assets .filter-wrapper,body.page-template-page-pubic-assets .filter-wrapper{padding-top:0}
 .facetwp-facet-race_event_status .fs-label{text-transform:capitalize;position:relative}
 .facetwp-facet-race_event_status.is-active .fs-label{color:transparent;position:relative;left:27px}
 .facetwp-facet-race_event_status.is-active .fs-label span.facetwp-counter{color:#707070}

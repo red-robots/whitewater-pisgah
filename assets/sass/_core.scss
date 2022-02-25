@@ -11198,7 +11198,12 @@ body.page-template-page-group-events {
 		padding-bottom: 30px;
 	}
 }
-
+body.page-template-page-public-assets,
+body.page-template-page-pubic-assets {
+	.filter-wrapper {
+		padding-top: 0;
+	}
+}
 .facetwp-facet-race_event_status {
 	.fs-label {
 		text-transform: capitalize;

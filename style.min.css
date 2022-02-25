@@ -3355,6 +3355,7 @@ body.page-template-page-food-beverage .menu-sections{margin-top:0}
 .content-only .single-featured-image{background-color:#CCC;position:relative;margin-bottom:30px}
 .content-only .single-featured-image img{width:100%;height:auto;float:left}
 .content-only .btn-sm.btn-cta{margin-top:15px}
+.imgwicon .btn-sm img{margin-right:10px;max-width:100px;position:relative;z-index:1000000}
 #primary.riverjam .gallerycol{background-image:url("images/spinner.gif");background-position:center;background-repeat:no-repeat;background-size:5%}
 #primary.riverjam .columns-2.text-and-images{width:100%;float:left;margin-top:8px}
 .filter-wrapper.river-jam{padding-bottom:0;padding-top:50px}

@@ -31,9 +31,6 @@ while ( have_posts() ) : the_post();
 	</section>
 	<?php } ?>
 
-	<div id="pageTabs"></div>
-
-
 	<?php 
 		$purchase_link = get_field("purchase_link");
 		$reservation = get_field("reservation_data");
@@ -52,6 +49,11 @@ while ( have_posts() ) : the_post();
 				</div>	
 			</section>
 	<?php } ?>
+
+	<div id="pageTabs"></div>
+
+
+	
 
 
 	<?php 

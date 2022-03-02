@@ -3046,6 +3046,7 @@ body.logged-in.admin-bar .job-info-page .text-centered-section{margin-top:-5px}
 .page-activity-passes .itemrow .button-group .spacer{display:inline-block;position:relative;top:-4px;font-style:italic}
 .page-activity-passes .itemrow.nobutton .activity-name span{bottom:3px}
 .page-activity-passes .camp-activities.section-content{padding-top:40px}
+#section-activities{padding-top:5px;padding-left:10px;padding-right:10px}
 #section-activities.section-content .entryList{margin-left:-10px;margin-right:-10px}
 .activity-blocks .imagediv span.img{position:absolute;top:0;left:0}
 .activity-blocks .imagediv iframe{position:absolute;top:0;left:0;width:100% !important;height:100% !important}
@@ -3831,6 +3832,7 @@ body.logged-in.admin-bar .job-info-page .text-centered-section{margin-top:85px}
 .page-activity-passes .single-activities .inner-content{max-width:90%}
 .page-activity-passes .itemrow{margin:7px 0}
 .page-activity-passes .itemrow .btn-sm{font-size:11px;padding:3px 8px 2px;min-width:70px}
+#section-activities{padding-left:0;padding-right:0}
 .buy-page#primary .twoColSection .tcol .photo{width:40%}
 .buy-page#primary .twoColSection .tcol .photo img.helper{display:none}
 .buy-page#primary .twoColSection .tcol .info{width:60%}

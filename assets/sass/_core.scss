@@ -10190,8 +10190,17 @@ body.logged-in.admin-bar {
 		}
 	}
 }
-
+#section-activities {
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	@include tab() {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
 #section-activities.section-content {
+	
 	.entryList {
 		margin-left: -10px;
 		margin-right: -10px;

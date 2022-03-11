@@ -16,7 +16,13 @@
 		}
 	}
 	$subscribe = get_field("group3","option");
+	$tou = get_field("terms_of_use","option");
 	?>
+	<div class="tou">
+		<div class="wrapper">
+			<?php echo $tou; ?>
+		</div>
+	</div>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="footTop full">
 			<div class="wrapper">

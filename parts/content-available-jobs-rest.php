@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -148,8 +147,8 @@ endif;endif;
 	}
 
 
-$posts = new WP_Query($args);
-if( $posts->have_posts() ) { ?>
+//$posts = new WP_Query($args);
+//if( $posts->have_posts() ) { ?>
 	<section id="section4" data-section="<?php echo $title4 ?>" class="section-content entries-with-filter">
 		<div class="entries-inner wrapper text-center">
 
@@ -504,11 +503,12 @@ if( $posts->have_posts() ) { ?>
 								
 
 								<?php 
-								if( $posts->have_posts() ) {
-									$i=1; while ( $posts->have_posts()) : $posts->the_post(); ?>
+								//if( $posts->have_posts() ) {
+									//$i=1; while ( $posts->have_posts()) : $posts->the_post(); ?>
 										<!-- <div class="hide" style="display:none;"><?php echo get_the_title(); ?></div> -->
-									<?php $i++; endwhile; wp_reset_postdata(); 
-								} ?>
+									<?php //$i++; endwhile; 
+									wp_reset_postdata(); 
+								//} ?>
 							</div>
 						</div>
 					</div>
@@ -516,4 +516,4 @@ if( $posts->have_posts() ) { ?>
 			</div> 
 		</div>
 	</section>
-<?php } ?>
+<?php //} ?>

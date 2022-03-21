@@ -816,6 +816,26 @@ body.nav-open {
 			.iframe-wrapper {
 				padding: 0 0;
 				position: relative;
+				width: 100%;
+				video {
+					width: 100%;
+				}
+				&.yes-mobile {
+					
+					.desktop {
+						display: none;
+						@include tab {
+							display: block;
+						}
+					}
+					.mobile {
+						display: block;
+						@include tab {
+							display: none;
+						}
+					}
+					
+				}
 			}
 			img.image-size-ref {
 				visibility: hidden;

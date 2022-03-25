@@ -588,7 +588,7 @@ while ( have_posts() ) : the_post();
 
 	<?php 
 	// this is actuall the map tab in ACF
-	//include(locate_template('parts/points-of-interest.php')); ?>
+	include(locate_template('parts/points-of-interest.php')); ?>
 	
 
 	<?php /* MAPS */ ?>

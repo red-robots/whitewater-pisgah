@@ -6,6 +6,7 @@ $checkin_images = array();
 $checkin_rows = array();
 $points_title = get_field("points_section_title");
 $sIcon = get_field("points_section_icon");
+// $sIcon = get_field("custom_icon_copy");
 // echo '<pre>';
 // print_r($sIcon);
 // echo '</pre>';
@@ -18,6 +19,7 @@ if( have_rows('points_of_interest') ): ?>
 			<div class="icon">
 					<img src="<?php echo $sIcon['url']; ?>">
 				</div>
+				<!-- points of interest -->
 			<h2 class="stitle"><?php echo $section4; ?></h2>
 			<?php if ($stories_text) { ?>
 			<div class="subtext">

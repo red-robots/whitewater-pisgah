@@ -22,7 +22,7 @@ if ( have_rows('extra_cards') ) : ?>
 	</div>
 	<?php $i=1; while ( have_rows('extra_cards') ) : the_row(); ?>
 		<?php 
-		$xtitle = get_sub_field('x_card_sect_title'); 
+		// $xtitle = get_sub_field('x_card_sect_title'); 
 		$content = get_sub_field('content');
 		$slides = get_sub_field("images");
 		$cta = get_sub_field("call_to_action");

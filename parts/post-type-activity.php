@@ -93,6 +93,7 @@ while ( have_posts() ) : the_post();
 	<?php 
 	/* FLEXIBLE CONTENT */
 	$flex_section_title = get_field("flexcontent_section_title");
+	$addIcon = get_field("section_icon_a_c");
 	$flex_blocks = get_field("flexcontent_text_image");
 	$margin = ($flex_section_title) ? '':' nomtop';
 	if($flex_blocks) { ?>
@@ -102,6 +103,9 @@ while ( have_posts() ) : the_post();
 				<div class="wrapper">
 					<div class="shead-icon text-center">
 						<!-- <div class="icon"><span class="ci-calendar"></span></div> -->
+						<div class="icon">
+							<img src="<?php echo $addIcon['url']; ?>">
+						</div>
 						<h2 class="stitle"><?php echo $flex_section_title ?></h2>
 					</div>
 				</div>
@@ -582,7 +586,9 @@ while ( have_posts() ) : the_post();
 	</section>
 	<?php } ?>
 
-	<?php include(locate_template('parts/points-of-interest.php')); ?>
+	<?php 
+	// this is actuall the map tab in ACF
+	//include(locate_template('parts/points-of-interest.php')); ?>
 	
 
 	<?php /* MAPS */ ?>
@@ -617,7 +623,8 @@ while ( have_posts() ) : the_post();
 	</section>
 	<?php } ?>
 
-	<?php include(locate_template('parts/extra-cards.php')); ?>
+	<?php // this is actually the "points of interest" tab in ACF
+	include(locate_template('parts/extra-cards.php')); ?>
 
 	<?php /* FAQ */ ?>
 	<?php 

@@ -116,7 +116,7 @@ while ( have_posts() ) : the_post();
 						$f_image = $b['gallery_image'];
 						$fbutton = $b['button'];
 						if($f_title || $f_text || $f_image) { 
-							$colClass = ($x % 2==0) ? 'even':'odd';
+							$colClass = ($x % 2==0) ? 'odd':'even';
 							if( ($f_title || $f_text) && $f_image ) {
 								$colClass .= ' half';
 							} else {

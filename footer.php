@@ -152,5 +152,18 @@
 </div><!-- #page -->
 <div id="loaderDiv"> <div class="loaderInline"> <div class="sk-chase"> <div class="sk-chase-dot"></div> <div class="sk-chase-dot"></div> <div class="sk-chase-dot"></div> <div class="sk-chase-dot"></div> <div class="sk-chase-dot"></div> <div class="sk-chase-dot"></div> </div> </div> </div>
 <?php wp_footer(); ?>
+<script>
+jQuery(document).ready(function($){
+	$(window).on('load', function() {
+    	if( $('input.datepicker_with_icon').length ) {
+			$('input.datepicker_with_icon').each(function(){
+			  var id = $(this).attr('id');
+			  var iconURL = $('input#gforms_calendar_icon_'+id).val();
+			  $(this).parent().find('img').attr('src',iconURL);
+			});
+		  }
+	});
+});
+</script>
 </body>
 </html>

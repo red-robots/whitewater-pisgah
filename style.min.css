@@ -3579,6 +3579,11 @@ ul.items .show{display:block}
 #fi .select2-container.show{width:100% !important}
 .sect-div-pad{padding:30px 0}
 .tou{width:100%;background-color:#191919;color:rgba(255,255,255,0.7);float:left;padding:40px 0;font-size:12px;line-height:1.5}
+.gform_body p{width:100%;float:left}
+.gform_body ul.gfield_checkbox li.gchoice{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;justify-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.gform_body ul.gfield_checkbox li.gchoice br{display:none}
+.gform_body ul.gfield_checkbox li.gchoice input.gfield-choice-input,.gform_body ul.gfield_checkbox li.gchoice input[type=checkbox]{margin-top:0 !important;margin-right:10px}
+.public-assets-section{margin-bottom:40px}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}

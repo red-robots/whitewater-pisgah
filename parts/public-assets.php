@@ -1,83 +1,90 @@
-<?php /* ACTIVITIES */ ?>
-<?php if( $bottom_activities = get_field("public_assets") ) { 
-	$countActivities = count($bottom_activities);
-	$sTitle = get_field('popup_section_title');
-?>
-<section id="section-activities" data-section="Programming" class="section-content camp-activities countItems<?php echo $countActivities?>">
-	<?php if( $sTitle ){ ?>
-	<div class="wrapper titlediv">
-		<div class="shead-icon text-center">
-			<div class="icon"><span class="ci-task"></span></div>
-			<h2 class="stitle"><?php echo $sTitle; ?></h2>
-		</div>
-	</div>
-	<?php } ?>
-
-	<div class="entryList flexwrap">
-		<?php $b=1; foreach ($bottom_activities as $ba) {
-			
-			$pid = $ba->ID;
-			$title = $ba->post_title;
-			// $pExcerpt = $ba->post_excerpt;
-			$pExcerpt = get_field('excerpt',$pid);
-			// $description = ($ba->post_content) ? shortenText(strip_shortcodes(strip_tags($ba->post_content)),300," ","..."):'';
-			$description = get_field('content',$pid);;
-			if( $pExcerpt ) {
-				$description = $pExcerpt;
-			}
-			$thumbnail = get_field("thumbnail_image",$pid);
-			$buttonLink = get_permalink($pid);
-			$pageLink = '#';
-			$contentType = get_field("content_display_type",$pid);
-			$is_popup = ($contentType=='pagelink') ? false : true;
-			$url = get_field("pagelink",$pid);
-			$btnURL = ( isset($url['url']) && $url['url'] ) ? $url['url'] : '';
-			$btnText = ( isset($url['title']) && $url['title'] ) ? $url['title'] : '';
-			$btnTarget = ( isset($url['target']) && $url['target'] ) ? $url['target'] : '_self';
-			if($contentType=='nobutton') {
-				$is_popup = false;
-				$btnURL = '';
-				$btnText = '';
-			}
-			
+<?php
+$placeholder = THEMEURI . 'images/rectangle.png';
+$perpage = -1;
+$posttype = 'public_assets';
+$args = array(
+	'posts_per_page'   => $perpage,
+	'post_type'        => $posttype,
+	'post_status'      => 'publish'
+);
+$entries = new WP_Query($args); 
+if ( $entries->have_posts() ) { ?>
+<section class="flex-container store-listings full">
+	<?php $i=1; while ( $entries->have_posts() ) : $entries->the_post(); ?>
+		<?php 
+		$title = get_the_title(); 
+		$text = get_the_content();
+		$slides = get_field("image_slides");
+		$brands = get_field("brands");
+		$columnClass = ( $slides && ($text || $brands) ) ? 'half':'full';
+		$columnClass .= ($i % 2) ? ' odd':' even';
 		?>
-		<div id="entryBlock<?php echo $b?>" class="fbox <?php echo ($thumbnail) ? 'hasImage':'noImage'; ?>">
-			<div class="inside text-center">
-				<div class="imagediv <?php echo ($thumbnail) ? 'hasImage':'noImage'?>">
-					<?php if ($thumbnail) { 
-							if ($is_popup) { ?>
-								<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class=" ajaxLoadContent popdata">
-							<?php } else { ?>
-								<a href="<?php echo $btnURL ?>" target="<?php echo $btnTarget ?>" class=" ">
+		<div id="entry<?php echo $i ?>" data-section="<?php echo $title ?>" class="entry <?php echo $columnClass ?>">
+			<div class="flexwrap wow fadeIn">
+				
+				<?php if ($text || $brands) { ?>
+				<div class="block textcol">
+					<div class="inside">
+						<div class="wrap">
+							<div class="text text-center">
+								<h2 class="stitle"><?php echo $title ?></h2>
+								<?php if ($text) { ?>
+									<?php echo $text; ?>
+								<?php } ?>
+							</div>
+							
+							<?php if ($brands) { ?>
+							<div class="product-brands">
+								<?php foreach ($brands as $b) { 
+									$imgWebURL = get_field("image_website",$b['ID']);
+									$openLink = '';
+									$closeLink = '';
+									if($imgWebURL) {
+										$openLink = '<a href="'.$imgWebURL.'" target="_blank">';
+										$closeLink = '</a>';
+									} ?>
+									<div class="brand"><?php echo $openLink ?><span style="background-image:url('<?php echo $b['url'] ?>');"><img src="<?php echo $b['url'] ?>" alt="<?php echo $b['title'] ?>"></span><?php echo $closeLink ?></div>
+								<?php } ?>
+							</div>
 							<?php } ?>
-								<span class="img" style="background-image:url('<?php echo $thumbnail['url']?>')"></span>
-							</a>
-					<?php } ?>
-					<img src="<?php echo $thumbnail['url'] ?>" alt="" aria-hidden="true" class="placeholder">
-				</div>
-				<div class="titlediv">
-					<p class="name"><?php echo $title ?></p>
-					<?php if ($description) { ?>
-					<div class="excerpt"><?php echo $description; ?></div>	
-					<?php } ?>
+						</div>
+					</div>
+				</div>	
+				<?php } ?>
 
-					<?php if ($is_popup) { ?>
-						<div class="buttondiv">
-							<a href="#" data-url="<?php echo $pageLink ?>" data-action="ajaxGetPageData" data-id="<?php echo $pid ?>" class="btn-sm ajaxLoadContent popdata"><span>See Details</span></a>	
-						</div>
-					<?php } else { ?>
-						<?php if ( ($btnURL && $btnText) && $contentType=='pagelink' ) { ?>
-						<div class="buttondiv">
-							<a href="<?php echo $btnURL ?>" target="<?php echo $btnTarget ?>" class="btn-sm xs btn-link"><span><?php echo $btnText ?></span></a>	
-						</div>
-						<?php } ?>
-					<?php } ?>
+				<?php if ($slides) { $count = count($slides); ?>
+				<div class="block imagecol">
+					<div class="inside">
+							<div id="subSlider<?php echo $i?>" class="flexslider posttypeslider <?php echo ($count>1) ? 'doSlider':'noSlider'?>">
+								<ul class="slides">
+									<?php $helper = THEMEURI . 'images/rectangle-narrow.png'; ?>
+									<?php foreach ($slides as $s) { ?>
+										<li class="slide-item" style="background-image:url('<?php echo $s['url']?>')">
+											<img src="<?php echo $helper ?>" alt="" aria-hidden="true" class="placeholder">
+											<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>" class="actual-image" />
+										</li>
+									<?php } ?>
+								</ul>
+							</div>
+					</div>
 				</div>
+				<?php } ?>
+
 			</div>
 		</div>
-		<?php $b++; } ?>
-	</div>
-</div>
+	<?php $i++; endwhile; wp_reset_postdata(); ?>
 </section>
-
 <?php } ?>
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	// if( $(".doSlider").length>0 ) {
+	// 	$(".doSlider").each(function(){
+	// 		var slideId = $(this).attr("id");
+	// 		$("#"+slideId+".doSlider").flexslider({
+	// 	    animation: "slide"
+	// 	  });
+	// 	});
+	// }
+});
+</script>

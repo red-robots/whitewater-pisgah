@@ -2630,7 +2630,7 @@ body.scrolled .hero-register-button .registerBtn{position:fixed}
 .store-listings .half .block.textcol .wrap{width:100%}
 .store-listings .half .block.imagecol{width:100%}
 .store-listings .half .block.imagecol .inside{background:#f2f2f2}
-.store-listings .product-brands{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.store-listings .product-brands{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;text-align:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .store-listings .product-brands .brand{display:inline-block;width:50%;height:80px;background-size:contain;background-position:center;background-repeat:no-repeat;padding:15px 10px}
 .store-listings .product-brands .brand span{display:block;width:100%;height:100%;float:left;background-size:contain;background-position:center;background-repeat:no-repeat}
 .store-listings .product-brands .brand a{display:block;width:100%;height:100%;float:left}

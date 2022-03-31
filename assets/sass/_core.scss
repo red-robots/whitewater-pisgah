@@ -7504,6 +7504,9 @@ body.scrolled {
 	}
 	.product-brands {
 		@include flexgroup();
+		text-align: center;
+		justify-content: center;
+		align-items: center;
 		.brand {
 			display: inline-block;
 			width: 50%;

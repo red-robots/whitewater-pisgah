@@ -1,4 +1,6 @@
 <?php
+$sTitle = get_field('popup_section_title');
+
 $placeholder = THEMEURI . 'images/rectangle.png';
 $perpage = -1;
 $posttype = 'public_assets';
@@ -9,7 +11,16 @@ $args = array(
 );
 $entries = new WP_Query($args); 
 if ( $entries->have_posts() ) { ?>
+<section id="section-activities" data-section="<?php echo $sTitle; ?>" class="section-content flex-container store-listings full countItems<?php echo $countActivities?>">
 <section class="flex-container store-listings full">
+	<?php if( $sTitle ){ ?>
+	<div class="wrapper titlediv sect-div-pad">
+		<div class="shead-icon text-center">
+			<div class="icon"><span class="ci-task"></span></div>
+			<h2 class="stitle"><?php echo $sTitle; ?></h2>
+		</div>
+	</div>
+	<?php } ?>
 	<?php $i=1; while ( $entries->have_posts() ) : $entries->the_post(); ?>
 		<?php 
 		$title = get_the_title(); 
@@ -19,7 +30,8 @@ if ( $entries->have_posts() ) { ?>
 		$columnClass = ( $slides && ($text || $brands) ) ? 'half':'full';
 		$columnClass .= ($i % 2) ? ' odd':' even';
 		?>
-		<div id="entry<?php echo $i ?>" data-section="<?php echo $title ?>" class="entry <?php echo $columnClass ?>">
+		<div id="entry<?php echo $i ?>"  class="entry <?php echo $columnClass ?>">
+			<!-- <div id="entry<?php echo $i ?>" data-section="<?php echo $title ?>" class="entry <?php echo $columnClass ?>"> -->
 			<div class="flexwrap wow fadeIn">
 				
 				<?php if ($text || $brands) { ?>

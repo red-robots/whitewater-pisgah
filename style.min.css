@@ -2619,6 +2619,7 @@ body.scrolled .hero-register-button .registerBtn{position:fixed}
 .store-hours-info .b2{position:relative}
 .store-hours-info .b2 img.mapImg{display:block;width:100%;height:auto;float:left}
 .store-hours-info .b2 span.image{display:none}
+body.single-accommodation .flex-container.store-listings{margin-top:0}
 .store-listings{margin-top:50px}
 .store-listings .block{width:100%;overflow:hidden}
 .store-listings .entry{width:100%;float:left;margin-bottom:15px}

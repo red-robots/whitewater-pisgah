@@ -7414,7 +7414,11 @@ body.scrolled {
 		}
 	}
 }
-
+body.single-accommodation {
+	.flex-container.store-listings {
+		margin-top: 0;
+	}
+}
 .store-listings {
 	margin-top: 50px;
 	.block {

@@ -77,9 +77,11 @@ while ( have_posts() ) : the_post();
 					<ul class="slides">
 						<?php foreach ($galleries as $g) { ?>
 						<li class="sub-slide-item">
-							<div class="slide-image" style="background-image:url('<?php echo $g['url']?>')">
-								<img src="<?php echo $placeholder ?>" alt="">
-							</div>
+							<a href="<?php echo $g['url'] ?>" class="zoomPic zoom-image" data-fancybox="gallery">
+								<div class="slide-image" style="background-image:url('<?php echo $g['url']?>')">
+									<img src="<?php echo $placeholder ?>" alt="">
+								</div>
+							</a>
 						</li>	
 						<?php } ?>
 					</ul>
@@ -168,8 +170,10 @@ while ( have_posts() ) : the_post();
 											<?php $helper = THEMEURI . 'images/rectangle-narrow.png'; ?>
 											<?php foreach ($f_image as $s) { ?>
 												<li class="slide-item" style="background-image:url('<?php echo $s['url']?>')">
-													<img src="<?php echo $helper ?>" alt="" aria-hidden="true" class="placeholder">
-													<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>" class="actual-image" />
+													<a href="<?php echo $s['url'] ?>" class="zoomPic zoom-image" data-fancybox="gallery<?php echo$i; ?>">
+														<img src="<?php echo $helper ?>" alt="" aria-hidden="true" class="placeholder">
+														<img src="<?php echo $s['url'] ?>" alt="<?php echo $s['title'] ?>" class="actual-image" />
+													</a>
 												</li>
 											<?php } ?>
 										</ul>

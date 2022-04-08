@@ -3586,6 +3586,7 @@ ul.items .show{display:block}
 .gform_body ul.gfield_checkbox li.gchoice br{display:none}
 .gform_body ul.gfield_checkbox li.gchoice input.gfield-choice-input,.gform_body ul.gfield_checkbox li.gchoice input[type=checkbox]{margin-top:0 !important;margin-right:10px}
 .public-assets-section{margin-bottom:40px}
+.clear{clear:both}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}

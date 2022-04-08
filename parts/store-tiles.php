@@ -8,6 +8,10 @@ if ( have_rows('tile') ) : ?>
 		$text = get_sub_field('excerpt');
 		$slides = get_sub_field("image_slides");
 		$brands = get_sub_field("brands");
+		$btns = get_sub_field('link_buttons');
+		echo '<pre>';
+		print_r($btns);
+		echo '</pre>';
 		$columnClass = ( $slides && ($text || $brands) ) ? 'half':'full';
 		$columnClass .= ($i % 2) ? ' odd':' even';
 		?>
@@ -23,6 +27,18 @@ if ( have_rows('tile') ) : ?>
 								<?php if ($text) { ?>
 									<?php echo $text; ?>
 								<?php } ?>
+								<?php foreach ($btns as $bbb) { 
+										// echo '<pre>';
+										// print_r($bbb);
+										// echo '</pre>';
+										$buttonTitle = (isset($bbb['link']['title']) && $bbb['link']['title']) ? $bbb['link']['title'] : '';
+										$buttonLink = (isset($bbb['link']['url']) && $bbb['link']['url']) ? $bbb['link']['url'] : '';
+										$buttonTarget = (isset($bbb['link']['target']) && $bbb['link']['target']) ? $bbb['link']['target'] : '_self';
+				?>
+										<div class="buttondiv">
+											<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm xs"><span><?php echo $buttonTitle ?></span></a>
+										</div>
+									<?php } ?>
 							</div>
 							
 							<?php if ($brands) { ?>

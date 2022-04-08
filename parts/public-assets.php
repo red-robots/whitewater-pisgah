@@ -27,6 +27,10 @@ if ( $entries->have_posts() ) { ?>
 		$text = get_the_content();
 		$slides = get_field("image_slides");
 		$brands = get_field("brands");
+		$btns = get_field('link_buttons');
+		// echo '<pre>';
+		// print_r($btns);
+		// echo '</pre>';
 		$columnClass = ( $slides && ($text || $brands) ) ? 'half':'full';
 		$columnClass .= ($i % 2) ? ' odd':' even';
 		?>
@@ -39,26 +43,40 @@ if ( $entries->have_posts() ) { ?>
 					<div class="inside">
 						<div class="wrap">
 							<div class="text text-center">
+								<?php if ($brands) { ?>
+							<div class="product-brands">
+								<?php foreach ($brands as $b) { 
+										$imgWebURL = get_field("image_website",$b['ID']);
+										$openLink = '';
+										$closeLink = '';
+										if($imgWebURL) {
+											$openLink = '<a href="'.$imgWebURL.'" target="_blank">';
+											$closeLink = '</a>';
+										} ?>
+										<div class="brand"><?php echo $openLink ?><span style="background-image:url('<?php echo $b['url'] ?>');"><img src="<?php echo $b['url'] ?>" alt="<?php echo $b['title'] ?>"></span><?php echo $closeLink ?></div>
+									<?php } ?>
+								</div>
+								<?php } ?>
+							
 								<h2 class="stitle"><?php echo $title ?></h2>
 								<?php if ($text) { ?>
 									<?php echo $text; ?>
 								<?php } ?>
+								<?php foreach ($btns as $bbb) { 
+										// echo '<pre>';
+										// print_r($bbb);
+										// echo '</pre>';
+										$buttonTitle = (isset($bbb['button_label']) && $bbb['button_label']) ? $bbb['button_label'] : '';
+										$buttonLink = (isset($bbb['link']) && $bbb['link']) ? $bbb['link'] : '';
+										$buttonTarget = (isset($bbb['target']) && $bbb['target']) ? $bbb['target'] : '_self';
+				?>
+										<div class="buttondiv">
+											<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm xs"><span><?php echo $buttonTitle ?></span></a>
+										</div>
+									<?php } ?>
 							</div>
 							
-							<?php if ($brands) { ?>
-							<div class="product-brands">
-								<?php foreach ($brands as $b) { 
-									$imgWebURL = get_field("image_website",$b['ID']);
-									$openLink = '';
-									$closeLink = '';
-									if($imgWebURL) {
-										$openLink = '<a href="'.$imgWebURL.'" target="_blank">';
-										$closeLink = '</a>';
-									} ?>
-									<div class="brand"><?php echo $openLink ?><span style="background-image:url('<?php echo $b['url'] ?>');"><img src="<?php echo $b['url'] ?>" alt="<?php echo $b['title'] ?>"></span><?php echo $closeLink ?></div>
-								<?php } ?>
-							</div>
-							<?php } ?>
+							
 						</div>
 					</div>
 				</div>	

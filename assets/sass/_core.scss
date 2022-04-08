@@ -805,6 +805,9 @@ body.nav-open {
 	&.video-playing {
 		z-index: 300;
 	}
+	iframe {
+		width: 100%;
+	}
 	margin-top: 55px;
 	@include tab {
 		margin-top: 60px;
@@ -1368,6 +1371,7 @@ h2.stitle,
 }
 .buttondiv {
 	margin-top: 20px;
+	display: inline-block;
 }
 
 .btn-sm {
@@ -1457,6 +1461,7 @@ h2.stitle,
 	margin-top: 35px;
 	.buttondiv {
 		margin: 0 0 15px!important;
+
 	}
 	.btn-sm {
 		text-align: center;
@@ -5524,6 +5529,7 @@ body.single-instructions {
 		}
 		.buttondiv {
 			margin-top: 25px;
+			display: inline-block;
 		}
 	}
 	.half {
@@ -7439,7 +7445,7 @@ body.single-accommodation {
 		line-height: 1.5;
 	}
 	.product-brands {
-		margin: 40px 0;
+		margin:  0px 0 20px 0;
 	}
 	.half {
 		.block.textcol {
@@ -10220,6 +10226,7 @@ body.logged-in.admin-bar {
 			}
 			.buttondiv {
 				margin-top: 20px;
+				display: inline-block;
 			}
 		}
 	}

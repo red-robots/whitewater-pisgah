@@ -103,5 +103,6 @@ if($postHeroImage) {
 	</header><!-- #masthead -->
 
 	<?php get_template_part("parts/slideshow"); ?>
+	
 
 	<div id="content" class="site-content">

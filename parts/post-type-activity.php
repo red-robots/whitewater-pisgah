@@ -121,6 +121,10 @@ while ( have_posts() ) : the_post();
 						$f_text = $b['description'];
 						$f_image = $b['gallery_image'];
 						$fbutton = $b['button'];
+						$bGroup = $b['buttons'];
+						// echo '<pre>';
+						// print_r($b);
+						// echo '</pre>';
 						if($f_title || $f_text || $f_image) { 
 							$colClass = ($x % 2==0) ? 'odd':'even';
 							if( ($f_title || $f_text) && $f_image ) {
@@ -145,10 +149,24 @@ while ( have_posts() ) : the_post();
 										<?php if($f_text || ($buttonTitle && $buttonLink) ) { ?>
 											<div class="textwrap">
 												<div class="mstext"><?php echo $f_text ?></div>
-												<?php if ($buttonTitle && $buttonLink) { ?>
+												<?php 
+												// not being used.. Now use the repeater below:::
+												if ($buttonTitle && $buttonLink) { ?>
 												<div class="buttondiv">
 													<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm xs"><span><?php echo $buttonTitle ?></span></a>
 												</div>
+												<?php } ?>
+												<?php foreach ($bGroup as $bbb) { 
+													// echo '<pre>';
+													// print_r($bbb);
+													// echo '</pre>';
+													$buttonTitle = (isset($bbb['button']['title']) && $bbb['button']['title']) ? $bbb['button']['title'] : '';
+													$buttonLink = (isset($bbb['button']['url']) && $bbb['button']['url']) ? $bbb['button']['url'] : '';
+													$buttonTarget = (isset($bbb['button']['target']) && $bbb['button']['target']) ? $bbb['button']['target'] : '_self';
+							?>
+													<div class="buttondiv">
+														<a href="<?php echo $buttonLink ?>" target="<?php echo $buttonTarget ?>" class="btn-sm xs"><span><?php echo $buttonTitle ?></span></a>
+													</div>
 												<?php } ?>
 											</div>
 										<?php } ?>

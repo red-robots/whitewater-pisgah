@@ -9,9 +9,9 @@ if ( have_rows('tile') ) : ?>
 		$slides = get_sub_field("image_slides");
 		$brands = get_sub_field("brands");
 		$btns = get_sub_field('link_buttons');
-		echo '<pre>';
-		print_r($btns);
-		echo '</pre>';
+		// echo '<pre>';
+		// print_r($btns);
+		// echo '</pre>';
 		$columnClass = ( $slides && ($text || $brands) ) ? 'half':'full';
 		$columnClass .= ($i % 2) ? ' odd':' even';
 		?>

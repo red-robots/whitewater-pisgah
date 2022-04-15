@@ -59,6 +59,17 @@ if ( have_rows('extra_cards') ) : ?>
 										</a>
 									</div>
 								<?php } ?>
+								<?php if( $i == 1 ) { ?>
+									<br><br>
+									<a href="#rates" class="zoom-image">VIEW RATES</a>
+										<div style="display: none;">
+											<div id="rates">
+												<div class="rates-wrapper">
+													<?php echo do_shortcode('[tribe_events]'); ?>
+												</div>
+											</div>
+										</div>
+								<?php } ?>
 							</div>
 						</div>
 					</div>

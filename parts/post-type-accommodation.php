@@ -46,16 +46,8 @@ while ( have_posts() ) : the_post();
 					<a href="<?php echo $btn_link ?>" class="btn-border"<?php echo $target ?>>
 						<span><?php echo $btn_title ?></span>
 					</a>
-				</div>	
-				<br>
-				<a href="#rates" class="zoom-image">VIEW RATES</a>
-				<div style="display: none;">
-					<div id="rates">
-						<div class="rates-wrapper">
-							<?php echo do_shortcode('[tribe_events]'); ?>
-						</div>
-					</div>
 				</div>
+				
 			</section>
 	<?php } ?>
 

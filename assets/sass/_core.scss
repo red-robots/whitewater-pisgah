@@ -802,11 +802,21 @@ body.nav-open {
 	float: left;
 	position: relative;
 	background-color: #000;
+	a {
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1000000;
+	}
 	&.video-playing {
 		z-index: 300;
 	}
 	iframe {
 		width: 100%;
+
 	}
 	margin-top: 55px;
 	@include tab {

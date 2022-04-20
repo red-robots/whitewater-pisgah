@@ -1668,7 +1668,7 @@ body.nav-open{overflow:hidden}
 body.nav-open #overlay{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
 body.nav-open .menu-toggle{opacity:0}
 #banner{width:100%;float:left;position:relative;background-color:#000;margin-top:55px}
-#banner a{display:block;height:100%;width:100%;position:absolute;top:0;left:0;z-index:1000000}
+#banner a{display:block;height:100%;width:100%;position:absolute;top:0;left:0;z-index:998}
 #banner.video-playing{z-index:300}
 #banner iframe{width:100%}
 #banner .static-banner,#banner .flexslider{border-radius:0}

@@ -70,6 +70,7 @@ while ( have_posts() ) : the_post();
 	$placeholder = THEMEURI . 'images/rectangle.png';
 	$gallery_section_title = get_field("gallery_section_title");
 	$section1 = ($gallery_section_title) ? ' data-section="'.$gallery_section_title.'"':'';
+	$newLink = $galleryData['ai_link'];
 	?>
 
 	<?php if ($left_text || $galleries) { ?>
@@ -85,6 +86,13 @@ while ( have_posts() ) : the_post();
 						</div>	
 						<?php } ?>
 						<?php echo $left_text ?>	
+						<?php if ($newLink) { ?>
+							<div class="buttondiv imgwicon">
+								<a href="<?php echo $newLink['url']; ?>" target="<?php echo $newLink['target']; ?>" class="btn-sm">
+									<span><?php echo $newLink['title']; ?></span>
+								</a>
+							</div>
+						<?php } ?>
 					</div>	
 				</div>
 			</div>	

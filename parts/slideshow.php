@@ -11,7 +11,6 @@ $is_subpage = (is_home() || is_front_page()) ? false : true;
 $top_notification = get_field("top_notification",$post_id);
 $banner = get_field("full_image",$post_id);
 
-
 $is_single_post = ( is_single() ) ? true : false;
 $is_default_slide = ($is_single_post && $banner) ? false : true;
 
@@ -54,7 +53,8 @@ if($is_default_slide) { ?>
 				<?php $i=0; foreach ($flexslider as $row) { 
 					$is_video = ( isset($row['video']) && $row['video'] ) ? $row['video'] : '';
 					$slideType = ($is_video) ? 'type-video':'type-image';
-					$featuredType = ( isset($row['video_or_image']) && $row['video_or_image'] ) ? $row['video_or_image'] : ''; ?>
+					$featuredType = ( isset($row['video_or_image']) && $row['video_or_image'] ) ? $row['video_or_image'] : ''; 
+					$placeThumb = $row['placeholder']; ?>
 					<?php if( $featuredType=='video' && ($row['video']||$row['native_video']) ) { ?>
 						<li class="slideItem <?php echo $slideType; ?>">
 							<div class="iframe-wrapper <?php echo ($row['mobile_video']||$row['mobile_image'])?'yes-mobile':'no-mobile';?>">
@@ -62,7 +62,7 @@ if($is_default_slide) { ?>
 								    <a href="<?php echo $row['link']; ?>" class="slideLink" <?php if ( $row['target'] ):echo 'target="_blank"'; endif; ?>></a>
 								<?php endif;?>
 									<?php if($row['native_video']):?>
-										<video class="desktop" autoPlay loop muted playsinline>
+										<video class="desktop" autoPlay loop muted playsinline poster="<?php echo $placeThumb['url']; ?>">
 											<source src="<?php echo $row['native_video'];?>" type="video/mp4">
 										</video>
 									<?php elseif($row['video']):?>
@@ -139,7 +139,7 @@ if($is_default_slide) { ?>
 									
 									<?php endif;
 									if($row['mobile_video']):?>
-										<video class="mobile" autoPlay loop muted playsinline>
+										<video class="mobile" autoPlay loop muted playsinline poster="<?php echo $placeThumb['url']; ?>">
 											<source src="<?php echo $row['mobile_video'];?>" type="video/mp4">
 										</video>
 									<?php elseif($row['mobile_image']):?>

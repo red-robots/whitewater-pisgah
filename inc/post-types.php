@@ -205,7 +205,7 @@ function js_custom_init() {
             'menu_name' => 'Reviews',
             'plural'    => 'Reviews',
             'single'    => 'Review',
-            'menu_icon' => 'dashicons-quote',
+            'menu_icon' => 'dashicons-format-quote',
             'supports'  => array('title','editor')
         ),
     );

@@ -3437,9 +3437,12 @@ body.subpage.single {
 	.image-only {
 		width: 100%;
 		float: left;
-		background-size: cover;
+		background-size: contain;
 		background-position: center;
 		background-repeat: no-repeat;
+		@include tab {
+			background-size: cover;
+		}
 		img {
 			width: 100%;
 			height: auto;
@@ -3484,7 +3487,9 @@ body.subpage.single {
 		}
 	}
 	.col-right {
-		min-height: 600px;
+		@include tab {
+			min-height: 600px;
+		}
 		img.placeholder {
 			display: none;
 		}
@@ -14164,7 +14169,7 @@ ul.items {
 				position: relative;
 				padding-bottom: 5px;
 				border-bottom: 2px solid $gray;
-				
+
 				&:before {
 					content: "";
 					display: block;

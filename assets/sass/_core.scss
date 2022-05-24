@@ -13951,6 +13951,9 @@ ul.items {
 			line-height: 1;
 			color: #565554;
 			margin-bottom: 10px;
+			@include tab {
+				width: 62%;
+			}
     }
     .h-text {
 			width: 100%;
@@ -14059,6 +14062,7 @@ ul.items {
 		.h-title {
 			@include tab {
 				padding-right: 3vw;
+				// width: 50%;
 			}
 		}
 	}
@@ -14091,6 +14095,7 @@ ul.items {
 		.h-title {
 			@include tab {
 				padding-left: 3vw;
+				// width: 50%;
 			}
 		}
 	}
@@ -14159,6 +14164,7 @@ ul.items {
 				position: relative;
 				padding-bottom: 5px;
 				border-bottom: 2px solid $gray;
+				
 				&:before {
 					content: "";
 					display: block;

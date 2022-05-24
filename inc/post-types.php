@@ -200,6 +200,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-location-alt',
             'supports'  => array('title','editor')
         ),
+        array(
+            'post_type' => 'review',
+            'menu_name' => 'Reviews',
+            'plural'    => 'Reviews',
+            'single'    => 'Review',
+            'menu_icon' => 'dashicons-quote',
+            'supports'  => array('title','editor')
+        ),
     );
     
     if($post_types) {

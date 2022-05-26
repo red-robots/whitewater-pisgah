@@ -41,13 +41,16 @@ if( $catId == '23' ) {
 						<div class="inside fadeIn wow" data-wow-delay="<?php echo $sec;?>s">
 							<div class="wrap">
 								<h2 class="title"><?php echo $title; ?></h2>
-								<?php $postdate = get_the_date('M j, Y'); ?>
+								<?php 
+								$postdate = date('M j, Y', strtotime($pDate));
+								// $postdate = get_the_date('M j, Y');
+								?>
 								<div class="store-postdate"><span><?php echo $postdate ?></span></div>
 
-								<?php if ($content) { ?>
+								<?php if ($excerpt) { ?>
 									<div class="text">
 										<?php //echo shortenText(strip_tags($content),200,' ','...'); ?>
-										<?php the_excerpt(); ?>		
+										<?php echo $excerpt; ?>		
 									</div>
 								<?php } ?>
 								<div class="buttondiv">

@@ -29,6 +29,7 @@ if ( have_rows('extra_cards') ) : ?>
 		$content = get_sub_field('content');
 		$slides = get_sub_field("images");
 		$cta = get_sub_field("call_to_action");
+		$ctas = get_sub_field("call_to_action_r");
 		$ctaIcon = get_sub_field("call_to_action_icon");
 		$rel = 'group-'.$iRel;
 				// echo '<pre>';
@@ -59,6 +60,27 @@ if ( have_rows('extra_cards') ) : ?>
 										</a>
 									</div>
 								<?php } ?>
+								<?php if ($cta) { ?>
+									<div class="buttondiv imgwicon">
+										<a href="<?php echo $cta['url']; ?>" target="<?php echo $cta['target']; ?>" class="btn-sm">
+											<?php if($ctaIcon){ ?><img src="<?php echo $ctaIcon['url']; ?>"><?php } ?>
+											<span><?php echo $cta['title']; ?></span>
+										</a>
+									</div>
+								<?php } ?>
+								<?php if ($ctas) { 
+
+									foreach( $ctas as $l ) { 
+										?>
+									<div class="buttondiv imgwicon">
+										<a href="<?php echo $l['call_to_action']['url']; ?>" target="<?php echo $l['call_to_action']['target']; ?>" class="btn-sm">
+											<?php if($l){ ?><img src="<?php echo $l['url']; ?>"><?php } ?>
+											<span><?php echo $l['call_to_action']['title']; ?></span>
+										</a>
+									</div>
+								<?php 
+									}
+									} ?>
 								<?php if( $i == 1 ) { ?>
 									<br><br>
 									<a href="#rates" class="zoom-image">VIEW RATES</a>

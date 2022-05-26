@@ -73,7 +73,7 @@ if ( have_rows('extra_cards') ) : ?>
 									foreach( $ctas as $l ) { 
 										?>
 									<div class="buttondiv imgwicon">
-										<a <?php if( $l['call_to_action']['title'] == 'View Rates'){echo 'id="inline"'} ?> href="<?php echo $l['call_to_action']['url']; ?>" target="<?php echo $l['call_to_action']['target']; ?>" class="btn-sm">
+										<a <?php if( $l['call_to_action']['title'] == 'View Rates' ){echo 'id="inline"';} ?> href="<?php echo $l['call_to_action']['url']; ?>" target="<?php echo $l['call_to_action']['target']; ?>" class="btn-sm">
 											<?php if($l){ ?><img src="<?php echo $l['url']; ?>"><?php } ?>
 											<span><?php echo $l['call_to_action']['title']; ?></span>
 										</a>

@@ -108,6 +108,10 @@ $("#selectByProgram").change(function() {
 	  hash : false
 	});
 
+	$("a#inline").fancybox({
+		'hideOnContentClick': true
+	});
+
 	// Reviews
 	 (function() {
  

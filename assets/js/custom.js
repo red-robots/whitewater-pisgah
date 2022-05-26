@@ -104,6 +104,9 @@ jQuery(document).ready(function ($) {
   $('.zoom-image').fancybox({
     buttons: ['fullScreen', 'close'],
     hash: false
+  });
+  $("a#inline").fancybox({
+    'hideOnContentClick': true
   }); // Reviews
 
   (function () {

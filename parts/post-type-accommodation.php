@@ -673,7 +673,7 @@ while ( have_posts() ) : the_post();
 		include( locate_template('parts/content-faqs.php') ); ?>
 
 	<?php /* House Reviews */ ?>
-	<?php include(locate_template('parts/reviews.php'));  ?>
+	<?php //include(locate_template('parts/reviews.php'));  ?>
 	
 
 	<?php /* Featured Articles */ ?>

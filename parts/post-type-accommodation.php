@@ -627,7 +627,7 @@ while ( have_posts() ) : the_post();
 	</section>
 	<?php } ?>
 
-	<?php include(locate_template('parts/points-of-interest.php')); ?>
+	<?php //include(locate_template('parts/points-of-interest.php')); ?>
 	
 
 	<?php /* MAPS */ ?>

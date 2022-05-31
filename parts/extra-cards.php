@@ -61,12 +61,12 @@ if ( have_rows('extra_cards') ) : ?>
 									</div>
 								<?php } ?>
 								<?php if ($cta) { ?>
-									<div class="buttondiv imgwicon">
+									<!-- <div class="buttondiv imgwicon">
 										<a href="<?php echo $cta['url']; ?>" target="<?php echo $cta['target']; ?>" class="btn-sm">
 											<?php if($ctaIcon){ ?><img src="<?php echo $ctaIcon['url']; ?>"><?php } ?>
 											<span><?php echo $cta['title']; ?></span>
 										</a>
-									</div>
+									</div> -->
 								<?php } ?>
 								<?php if ($ctas) { 
 

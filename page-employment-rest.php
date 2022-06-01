@@ -11,7 +11,7 @@ $has_banner = ($banner) ? 'hasbanner':'nobanner';
 $currentPageLink = get_permalink();
 $defaultLocation = get_default_job_location();
 
-$response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/pages/332' );
+$response = wp_remote_get( 'https://center.whitewater.org/wp-json/wp/v2/pages/332' );
 
         if( is_array($response) ) :
             $code = wp_remote_retrieve_response_code( $response );

@@ -9,6 +9,7 @@ $parents = get_field("parent_menu","option");
 $childenMenuItems = array();
 
 $secondary_menu = get_field("secondary_menu","option");
+$tertiary_menu = get_field("tertiary_menu","option");
 
 if($parents) { ?>
 
@@ -77,12 +78,45 @@ if($parents) { ?>
 					<?php } ?>
 				<?php } ?>
 				</ul>
+				
+			</div>
+			<?php } ?>
+
+
+
+			<?php if ($tertiary_menu) { ?>
+			<div class="squiggly"><div class="line"></div></div>
+			<div class="secondary-menu">
+				<ul class="menu2">
+				<?php foreach ($tertiary_menu as $tm) { 
+					$t = $tm['link'];
+					$t_icon = $tm['icon_class'];
+					if($t) {
+						$t_name = $t['title'];
+						$t_link = $t['url'];
+						$t_target = ($t['target']) ? $t['target'] : '_self';
+						?>
+						<li>
+							<a href="<?php echo $t_link ?>" target="<?php echo $t_target ?>">
+								<span><?php echo $t_name ?></span>
+								<?php if ($t_icon) { ?>
+								<i class="navIcon <?php echo $s_icon ?>"></i>
+								<?php } ?>
+							</a>
+						</li>
+					<?php } ?>
+				<?php } ?>
+				</ul>
+			</div>
+			<?php } ?>
+
+			<div class="secondary-menu">
 				<form action="<?php bloginfo('url'); ?>/" method="get">
 				    <input class="nav-search" type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
 				    <!-- <input type="image" alt="Search" src="<?php bloginfo( 'template_url' ); ?>/images/search.png" /> -->
 				</form>
 			</div>
-			<?php } ?>
+
 		</nav>
 	</div>
 

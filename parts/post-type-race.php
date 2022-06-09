@@ -14,13 +14,24 @@ while ( have_posts() ) : the_post(); ?>
 
 	<div id="pageTabs"></div>
 
-	<?php 
-	/* REGISTRATION */
-	$register_section_icon = get_field("register_section_icon"); 
-	$register_section_title = get_field("register_section_title"); 
-	$race_types = get_field("race_types"); 
-	$registration_note = get_field("registration_note");
+	<?php include(locate_template('parts/details.php')); ?>
 
+	<?php 
+	$eventInfoBoxes = get_field('use_event_info_boxes');
+
+	if( $eventInfoBoxes == 'use' ) {
+	/* REGISTRATION */
+		include(locate_template('parts/post-type-race-top-boxes.php')); 
+
+	} else {
+		$register_section_icon = get_field("register_section_icon"); 
+		$register_section_title = get_field("register_section_title"); 
+		$race_types = get_field("race_types"); 
+		$registration_note = get_field("registration_note");
+	 
+
+
+	
 	$has_race_types = '';
 	if ( isset($race_types[0]['schedule']) && $race_types[0]['schedule'] ) {
 		//$rtypes =implode("",$race_types[0]['schedule']);
@@ -107,27 +118,29 @@ while ( have_posts() ) : the_post(); ?>
 				</div>
 			</div>
 		</div>
-		<?php } ?>
+		<?php } 
+			$eventInfo = get_field("additional_event_info"); 
+			$event_info_btn = get_field("event_info_button_name"); 
+			?>
+			<?php if ($registration_note || $eventInfo) { ?>
+			<div class="black-section">
+				<div class="wrapper text-center">
+					<?php echo $registration_note; ?>
+					<?php if ($eventInfo && $event_info_btn) { ?>
+						<div class="buttondiv">
+							<a data-toggle="modal" data-target="#additionEventInfo" class="btn-sm xs white popup-event-info"><span><?php echo $event_info_btn ?></span></a>
+						</div>			
+					<?php } ?>		
+				</div>
+			</div>	
+			<?php } ?>
+			
+		</section>
+	<?php } 
+	}
 
-		<?php 
-		$eventInfo = get_field("additional_event_info"); 
-		$event_info_btn = get_field("event_info_button_name"); 
-		?>
-		<?php if ($registration_note || $eventInfo) { ?>
-		<div class="black-section">
-			<div class="wrapper text-center">
-				<?php echo $registration_note; ?>
-				<?php if ($eventInfo && $event_info_btn) { ?>
-					<div class="buttondiv">
-						<a data-toggle="modal" data-target="#additionEventInfo" class="btn-sm xs white popup-event-info"><span><?php echo $event_info_btn ?></span></a>
-					</div>			
-				<?php } ?>		
-			</div>
-		</div>	
-		<?php } ?>
-		
-	</section>
-	<?php } ?>
+	?>
+
 
 
 	<?php
@@ -207,15 +220,18 @@ while ( have_posts() ) : the_post(); ?>
 	$end = get_field("end_date");
 	$event_date = get_event_date_range($start,$end,true);
 	if($sched_section_title || $has_race_types) { ?>
-	<section id="section-schedule" data-section="Schedule" class="section-content">
+	<section id="section-registration" data-section="Schedule" class="section-content">
 		<?php if ($sched_section_title) { ?>
 			<div class="title-w-icon">
 				<div class="wrapper">
 					<div class="shead-icon text-center">
 						<div class="icon"><span class="ci-menu"></span></div>
-						<h2 class="stitle"><?php echo $sched_section_title ?></h2>
+						<h2 class="stitle"  style="color:#FFF;"><?php echo $sched_section_title ?></h2>
 						<?php if ($event_date) { ?>
-						<div class="event-date"><?php echo $event_date ?></div>	
+						<div class="event-date">
+							<?php //echo $event_date ?>
+								<?php //echo $start.' - '.$end; ?>
+							</div>	
 						<?php } ?>
 					</div>
 					<?php if( $optional_text ) { ?>
@@ -233,85 +249,114 @@ while ( have_posts() ) : the_post(); ?>
 		$show_filter = ($stat_filter=='off') ? false : true;
 		if ( $has_race_types ) {
 				$total_options = ($race_types) ? count($race_types) : 0; ?>
-				<div class="filter-section two-options">
-					<div class="wrapper">
+				<div class="race-types <?php echo $type_class; ?>">
+					<div class="inner-wrapper">
 
-						<?php if ($show_filter) { ?>
-							<?php if($total_options>1) {  ?>
-							<div class="filter-wrapper filterstyle customSelectWrap custom-select-wrap2">
-								<div class="wrapper">
-									<div class="flexwrap">
-										<div class="filter-field-group align-center">
-											<div class="filter-label">
-												<div class="inside"><span>Filter By</span></div>
-											</div>
+						<?php // used to have filter here ?>
 
-											<div class="select-wrap custom-select-wrap">
-												<select id="race-type-option" class="filter-select customSelect">
-												<?php $i=1; foreach ($race_types as $r) { 
-													$actualName = $r['name']; 
-													$alias = $r['alias'];
-													$name = ($alias) ? $alias : $actualName;
-													$slug = sanitize_title($name);
-													$schedule = $r['schedule'];
-													?>
-													<option value="race-opt<?php echo $i?>"><?php echo $name ?></option>
-												<?php $i++; } ?>
-												</select>
+						<div class="race-typesz <?php //echo $type_class; ?>">
+							<div class="inner-wrap">
+								<div class="flexwrap">
+									<?php $i=1; 
+									$totalTypes = count($race_types);
+									foreach ($race_types as $r) { 
+										$actualName = $r['name']; 
+										$alias = $r['alias'];
+										$name = ($alias) ? $alias : $actualName;
+										$slug = sanitize_title($name);
+										$sched = $r['schedule'];
+										$startdate = ( isset($sched['date']) && $sched['date'] ) ? $sched['date'] : '';
+										$enddate = ( isset($sched['enddate']) && $sched['enddate'] ) ? $sched['enddate'] : '';
+										$singleDay = ($startdate) ? date('l, F j, Y',strtotime($startdate)) : '';
+										if($totalTypes==1) {
+											$singleDay = ($startdate) ? date('l',strtotime($startdate)) : '';
+										}
+										$activities = ( isset($sched['schedule']) && $sched['schedule'] ) ? $sched['schedule'] : '';
+										// $is_active = ($i==1) ? ' active':'';
+										$is_active = 'active';
+										$dateRange = '';
+										if($startdate && $enddate) {
+											$dateRange = get_event_date_range($startdate,$enddate,true);
+										}
+										$day = ($dateRange) ? $dateRange : $singleDay;
+
+										// build a repeating array
+										$rDate = array();
+										$useDate = '';
+										if( $enddate && $enddate != $startdate ) {
+											$rDate[] = $enddate;
+											$useDate = $enddate;
+										}
+										$origStartDate = $startdate;
+										$newStartDate = date("l, F j, Y", strtotime($origStartDate));
+										$origEndDate = $enddate;
+										$newEndDate = date("l, F j, Y", strtotime($origEndDate));
+										// echo '<pre>';
+										// print_r($enddate);
+										// echo '</pre>';
+										?>
+										<div class="type">
+											<div class="inside">
+												<?php if ($name) { ?>
+													<div class="type-name"><h3><?php echo $name ?></h3></div>
+												<?php } ?>
+
+												<?php if ($activities) { ?>
+												<div class="sched-inside-new">
+												<ul class="activities">
+													<?php 
+													$ii = 0;
+													foreach ($activities as $a) { 
+														$time = $a['time'];
+														$event = $a['action'];
+														if($time || $action) { ?>
+														<?php if( $ii == 0 ){ ?>
+															<li class="rdate"><?php echo $newStartDate; ?></li>
+														<?php } ?>
+														<li class="info">
+															<div class="wrap">
+																<span class="time"><span><?php echo $time ?></span></span>
+																<span class="event"><span><?php echo $event ?></span></span>
+															</div>
+														</li>	
+														<?php } $ii++; ?>
+													<?php } ?>
+													<!-- 
+
+														Repeat if you have another date.
+	
+													-->
+													<?php 
+													//echo '<h1>'.$newStartDate. ' - '.$newEndDate.'</h1>';
+													if( $newStartDate !== $newEndDate && $enddate !=''): ?>
+														<?php 
+														$iii = 0;
+														foreach ($activities as $a) { 
+															$time = $a['time'];
+															$event = $a['action'];
+															if($time || $action) { ?>
+															<?php if( $iii == 0 ){ ?>
+																<li class="rdate"><?php echo $newEndDate; ?></li>
+															<?php } ?>
+															<li class="info">
+																<div class="wrap">
+																	<span class="time"><span><?php echo $time ?></span></span>
+																	<span class="event"><span><?php echo $event ?></span></span>
+																</div>
+															</li>	
+															<?php } $iii++; ?>
+														<?php } ?>
+													<?php endif; ?>
+													<!-- end repeat -->
+
+												</ul>	
+												</div>
+												<?php } ?>
 											</div>
 										</div>
-									</div>
+									<?php $i++; } ?>
 								</div>
 							</div>
-							<?php } ?>
-						<?php } ?>
-
-						<div class="schedule-information">
-							<?php $i=1; 
-							$totalTypes = count($race_types);
-							foreach ($race_types as $r) { 
-								$actualName = $r['name']; 
-								$alias = $r['alias'];
-								$name = ($alias) ? $alias : $actualName;
-								$slug = sanitize_title($name);
-								$sched = $r['schedule'];
-								$startdate = ( isset($sched['date']) && $sched['date'] ) ? $sched['date'] : '';
-								$enddate = ( isset($sched['enddate']) && $sched['enddate'] ) ? $sched['enddate'] : '';
-								$singleDay = ($startdate) ? date('l, F j, Y',strtotime($startdate)) : '';
-								if($totalTypes==1) {
-									$singleDay = ($startdate) ? date('l',strtotime($startdate)) : '';
-								}
-								$activities = ( isset($sched['schedule']) && $sched['schedule'] ) ? $sched['schedule'] : '';
-								$is_active = ($i==1) ? ' active':'';
-								$dateRange = '';
-								if($startdate && $enddate) {
-									$dateRange = get_event_date_range($startdate,$enddate,true);
-								}
-								$day = ($dateRange) ? $dateRange : $singleDay;
-								?>
-								<div id="race-opt<?php echo $i?>" class="schedule-info schedule <?php echo $is_active ?>">
-									<?php if ($day) { ?>
-									<div class="day"><span><?php echo $day ?></span></div>	
-									<?php } ?>
-
-									<?php if ($activities) { ?>
-									<ul class="activities">
-										<?php foreach ($activities as $a) { 
-											$time = $a['time'];
-											$event = $a['action'];
-											if($time || $action) { ?>
-											<li class="info">
-												<div class="wrap">
-													<span class="time"><span><?php echo $time ?></span></span>
-													<span class="event"><span><?php echo $event ?></span></span>
-												</div>
-											</li>	
-											<?php } ?>
-										<?php } ?>
-									</ul>	
-									<?php } ?>
-								</div>
-							<?php $i++; } ?>
 						</div>
 					</div>
 				</div>

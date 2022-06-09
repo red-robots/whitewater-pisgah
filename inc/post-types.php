@@ -56,14 +56,14 @@ function js_custom_init() {
         //     'menu_icon' => 'dashicons-tickets-alt',
         //     'supports'  => array('title','editor')
         // ),
-        // array(
-        //     'post_type' => 'race',
-        //     'menu_name' => 'Race Series',
-        //     'plural'    => 'Races',
-        //     'single'    => 'Race',
-        //     'menu_icon' => 'dashicons-location-alt',
-        //     'supports'  => array('title','editor')
-        // ),
+        array(
+            'post_type' => 'race',
+            'menu_name' => 'Race Series',
+            'plural'    => 'Races',
+            'single'    => 'Race',
+            'menu_icon' => 'dashicons-location-alt',
+            'supports'  => array('title','editor')
+        ),
         // array(
         //     'post_type' => 'film-series',
         //     'menu_name' => 'Film Series',

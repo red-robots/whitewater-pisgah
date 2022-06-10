@@ -55,15 +55,20 @@ if($is_default_slide) { ?>
 					$is_video = ( isset($row['video']) && $row['video'] ) ? $row['video'] : '';
 					$slideType = ($is_video) ? 'type-video':'type-image';
 					$featuredType = ( isset($row['video_or_image']) && $row['video_or_image'] ) ? $row['video_or_image'] : ''; 
-					$placeThumb = $row['placeholder']; ?>
+					$placeThumb = $row['placeholder']; 
+					$tColor = $row['text_color'];
+					if( $tColor == '' ){ $tColor == '#fff';}
+					$fbutton = $row['cta_buttons'];
+					
+					?>
 					<?php if( $featuredType=='video' && ($row['video']||$row['native_video']) ) { ?>
 						<li class="slideItem <?php echo $slideType; ?>">
-							<?php if($logoOverlay) { ?>
-								<div class="logo-overlay"><img src="<?php echo $logoOverlay['url'] ?>"></div>
-							<?php } ?>
+							
+							<?php include(locate_template('parts/slideshow-overlay.php')); ?>
+
 							<div class="iframe-wrapper <?php echo ($row['mobile_video']||$row['mobile_image'])?'yes-mobile':'no-mobile';?>">
 		                            <?php if($row['link']):?>
-								    <a href="<?php echo $row['link']; ?>" class="slideLink" <?php if ( $row['target'] ):echo 'target="_blank"'; endif; ?>></a>
+								    <a href="<?php echo $row['link']; ?>" class="slideLink banner-link" <?php if ( $row['target'] ):echo 'target="_blank"'; endif; ?>></a>
 								<?php endif;?>
 									<?php if($row['native_video']):?>
 										<video class="desktop" autoPlay loop muted playsinline poster="<?php echo $placeThumb['url']; ?>">
@@ -111,9 +116,7 @@ if($is_default_slide) { ?>
 																<a href="#" data-type="youtube" class="playVidBtn" data-embed="<?php echo $embed_url; ?>"><span>Play</span></a>
 															</div>
 															<iframe class="videoIframe iframe-youtube" data-vid="youtube" src="<?php echo $embed_url; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-															<?php if (isset($row['slide_text']) && $row['slide_text']) { ?>
-															<div class="slideCaption"><div class="text"><?php echo $row['slide_text'] ?></div></div>
-															<?php } ?>
+															<?php include(locate_template('parts/slideshow-overlay.php')); ?>
 														</div>
 													</div>
 												<?php }  ?>
@@ -134,9 +137,7 @@ if($is_default_slide) { ?>
 															<a href="#" data-type="vimeo" class="playVidBtn" data-embed=""><span>Play</span></a>
 														</div>
 														<iframe class="videoIframe iframe-vimeo" data-vid="vimeo" src="https://player.vimeo.com/video/<?php echo $vimeoId?>" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-														<?php if (isset($row['slide_text']) && $row['slide_text']) { ?>
-														<div class="slideCaption"><div class="text"><?php echo $row['slide_text'] ?></div></div>
-														<?php } ?>
+														<?php include(locate_template('parts/slideshow-overlay.php')); ?>
 													</div>
 												</div>
 											<?php } ?>
@@ -164,9 +165,10 @@ if($is_default_slide) { ?>
 	                            <?php if($row['link']):?>
 							    <a href="<?php echo $row['link']; ?>" class="slideLink" <?php if ( $row['target'] ):echo 'target="_blank"'; endif; ?>>
 							<?php endif;?>
-							<?php if($logoOverlay) { ?>
-								<div class="logo-overlay"><img src="<?php echo $logoOverlay['url'] ?>"></div>
-							<?php } ?>
+							<?php //if($logoOverlay) { ?>
+								<!-- <div class="logo-overlay"><img src="<?php echo $logoOverlay['url'] ?>"></div> -->
+							<?php //} ?>
+							
 	                                    <img class="desktop <?php if($i!==0) echo 'lazy';?>" <?php if($i!==0) echo 'data-';?>src="<?php echo $row['image']['url']; ?>"
 								     alt="<?php echo $row['image']['alt']; ?>">
 	                                    <?php if($row['mobile_image']):?>
@@ -177,9 +179,7 @@ if($is_default_slide) { ?>
 							    </a>
 	                            <?php endif;?>
 						</div><!--.image-wrapper-->
-						<?php if ( isset($row['slide_text']) && $row['slide_text'] ) { ?>
-						<div class="slideCaption"><div class="text"><?php echo $row['slide_text'] ?></div></div>
-						<?php } ?>
+						<?php include(locate_template('parts/slideshow-overlay.php')); ?>
 					</li>
 					<?php } ?>
 				<?php $i++; } ?>

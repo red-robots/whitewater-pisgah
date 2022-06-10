@@ -802,7 +802,7 @@ body.nav-open {
 	float: left;
 	position: relative;
 	background-color: #000;
-	a {
+	a.banner-link {
 		display: block;
 		height: 100%;
 		width: 100%;
@@ -823,12 +823,6 @@ body.nav-open {
 		margin-top: 60px;
 	}
 	.logo-overlay {
-		position: absolute;
-		top: 40%;
-		left: 0; 
-		right: 0; 
-		margin-left: auto; 
-		margin-right: auto; 
 		width: 200px;
 		z-index: 10;
 		@include tab {
@@ -837,6 +831,26 @@ body.nav-open {
 		img {
 			width: 100%;
 		}
+	}
+	.button-center {
+		width: 100%;
+		text-align: center;
+	}
+	.buttondiv {
+		position: relative;
+		z-index: 999;
+		display: inline-block;
+	}
+	.overlay-flex {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 	.static-banner,
 	.flexslider {
@@ -983,11 +997,11 @@ body.nav-open {
 		}
 	}
 	.slideCaption {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
+		// width: 100%;
+		// height: 100%;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
 		z-index: 10;
 		@include flexgroup-center();
 		.text {
@@ -1040,11 +1054,11 @@ body.nav-open {
 		}
 		.slideCaption,
 		.slidePageTitle {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
+			// width: 100%;
+			// height: 100%;
+			// position: absolute;
+			// top: 0;
+			// left: 0;
 			z-index: 5;
 			@include flexgroup-center();
 			text-align: center;
@@ -1057,15 +1071,20 @@ body.nav-open {
 				display: inline-block;
 				width: auto;
 				padding: 0.5em 1em 0.4em;
-				background: rgba(0, 0, 0, 0.85);
+				// background: rgba(0, 0, 0, 0.85);
 				color: #FFF;
 				font-family: $font_secondary;
-				font-size: 2em;
+				font-size: 1em;
 				font-weight: 300;
 				text-transform: uppercase;
 				letter-spacing: 2px;
 				float: none;
 				margin: 0 auto;
+				@include desk() {
+					font-size: 1.2em;
+					max-width: 40%;
+					margin: 20px auto 0 auto;
+				}
 			}
 		}
 	}

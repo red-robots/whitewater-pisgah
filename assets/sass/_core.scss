@@ -834,6 +834,9 @@ body.nav-open {
 		@include tab {
 			width: 500px;
 		}
+		img {
+			width: 100%;
+		}
 	}
 	.static-banner,
 	.flexslider {

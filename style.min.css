@@ -2719,7 +2719,7 @@ body.pageNoBanner .site-content{min-height:35em}
 #primary #section-faqs{padding-top:50px;padding-bottom:50px}
 .group-events-activities.section-content,.grid-images,.section-grid-images.section-content,.camp-activities.section-content{background:#FFF;padding-top:50px;padding-bottom:0}
 .group-events-activities.section-content .entries-flexwrap,.grid-images .entries-flexwrap,.section-grid-images.section-content .entries-flexwrap,.camp-activities.section-content .entries-flexwrap{margin-left:-8px;margin-right:-8px;position:relative;bottom:-8px}
-.group-events-activities.section-content .fbox,.grid-images .fbox,.section-grid-images.section-content .fbox,.camp-activities.section-content .fbox{width:100%}
+.group-events-activities.section-content .fbox,.grid-images .fbox,.section-grid-images.section-content .fbox,.camp-activities.section-content .fbox{width:100%;margin-bottom:20px}
 .group-events-activities.section-content .fbox.fullwidthbox,.grid-images .fbox.fullwidthbox,.section-grid-images.section-content .fbox.fullwidthbox,.camp-activities.section-content .fbox.fullwidthbox{width:100% !important}
 .group-events-activities.section-content .fbox .inside,.grid-images .fbox .inside,.section-grid-images.section-content .fbox .inside,.camp-activities.section-content .fbox .inside{text-align:center;background:#f2f2f2;height:100%}
 .group-events-activities.section-content .fbox .imagediv,.grid-images .fbox .imagediv,.section-grid-images.section-content .fbox .imagediv,.camp-activities.section-content .fbox .imagediv{display:block;width:100%;float:left;position:relative;background-color:#dedede;overflow:hidden}
@@ -3469,7 +3469,7 @@ body.page-template-page-race .post-type-entries .flex-inner.countItems1,body.pag
 .modal.customModal#additionEventInfo .modalText h5{font-size:14px}
 section.accomm-purchase{width:100%;float:left;margin:20px auto 60px auto;text-align:center}
 section.accomm-purchase .button{display:inline-block;color:#fff;background-color:#ba0c2f}
-section.accomm-purchase .button a{color:#fff;background-color:#ba0c2f;-webkit-transform:scale(1);transform:scale(1);padding:20px 30px;-webkit-transition:all ease .2s;transition:all ease .2s;text-transform:uppercase;font-size:18px;border:0}
+section.accomm-purchase .button a{color:#fff;background-color:#ba0c2f;-webkit-transform:scale(1);transform:scale(1);padding:10px 20px;-webkit-transition:all ease .2s;transition:all ease .2s;text-transform:uppercase;font-size:18px;border:0}
 section.accomm-purchase .button a:hover{-webkit-transform:scale(1.05);transform:scale(1.05);text-decoration:none}
 .accomodations{width:100%;float:left;margin-top:30px;margin-bottom:30px}
 .accomodations.nopadtop{margin-top:-20px}
@@ -3864,7 +3864,7 @@ body.scrolled.single-dining.logged-in.admin-bar .post-hero-image .stats{top:120p
 #primary .schedules-list li.item .dates{margin-top:40px}
 #primary #section-faqs{padding-top:60px;padding-bottom:70px}
 .group-events-activities.section-content,.grid-images,.section-grid-images.section-content,.camp-activities.section-content{padding-top:80px}
-.group-events-activities.section-content .fbox,.grid-images .fbox,.section-grid-images.section-content .fbox,.camp-activities.section-content .fbox{width:33.33%;padding:8px}
+.group-events-activities.section-content .fbox,.grid-images .fbox,.section-grid-images.section-content .fbox,.camp-activities.section-content .fbox{width:33.33%;padding:8px;margin:0}
 .group-events-activities.section-content.columns4 .fbox,.grid-images.columns4 .fbox,.section-grid-images.section-content.columns4 .fbox,.camp-activities.section-content.columns4 .fbox{width:50%}
 #section-registration .registerdiv{padding-top:70px;padding-bottom:70px}
 #section-registration .steps-wrapper{padding-top:70px;padding-bottom:80px}
@@ -3962,6 +3962,7 @@ body.single-festival .filter-wrapper.filterstyle .select-wrap{width:75%}
 .faq-categories .wrapper{max-width:1460px;padding-left:20px;padding-right:20px}
 .faq-categories #faqSelect{display:none}
 .film-series-page .post-type-entries .flex-inner.films-count-1,.film-series-page .post-type-entries .flex-inner.films-count-2,.film-series-page .post-type-entries .flex-inner.films-count-3{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+section.accomm-purchase .button a{padding:20px 30px}
 .accomodations .flexwrap .leftcol{width:35%;padding:0 4vw}
 .accomodations .flexwrap .leftcol span.img{display:block}
 .accomodations .flexwrap .leftcol img.logo-img{display:none}

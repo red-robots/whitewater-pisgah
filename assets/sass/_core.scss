@@ -8114,9 +8114,11 @@ body.pageNoBanner {
 	}
 	.fbox {
 		width: 100%;
+		margin-bottom: 20px;
 		@include tab {
 			width: 33.33%;
 			padding: 8px;
+			margin: 0;
 		}
 		&.fullwidthbox {
 			width: 100%!important;
@@ -12828,12 +12830,14 @@ section.accomm-purchase {
 			color: #fff;
 			background-color: $secondary;
 			transform: scale(1);
-			padding: 20px 30px ;
+			padding: 10px 20px ;
 			transition: all ease .2s;
 			text-transform: uppercase;
 			font-size: 18px;
 			border: 0;
-
+			@include tab() {
+				padding: 20px 30px ;
+			}
 			&:hover {
 				transform: scale(1.05);
 				text-decoration: none;

@@ -12,7 +12,7 @@ if($similarPosts) {
 		}
 	}
 }
-$perpage = 15;
+$perpage = 3;
 if($currentPostType=='activity') {
 	$perpage = -1;
 }

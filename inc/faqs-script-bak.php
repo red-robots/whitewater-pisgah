@@ -24,68 +24,19 @@ jQuery(document).ready(function ($) {
 		}		
 
 		
-	});
-
-	$(document).on("click",".wtw-options .collapsiblewtw",function(){
-		//var parent = $(this).parents(".collapsible")
-		var image_part = $(this).attr("data-part");
-		var default_image = ( $("#defaultModel").length> 0 ) ? $("#defaultModel").attr('data-default') : '';
-
-		if( $(this).hasClass('active') ) {
-			$(this).removeClass("active fadeIn");
-			$(".partImg").removeClass("fadeIn");
-		} else {
-			$(".wtw-options .collapsiblewtw").removeClass("active fadeIn");
-			$(this).addClass("active fadeIn");
-
-			if( default_image ) {
-				if( $(image_part).length > 0 ) {
-					var img_src = $(image_part).attr('data-src');
-					$(".partImg").removeClass("fadeIn");
-					$(image_part).addClass("fadeIn");
-				} else {
-					$(".partImg").removeClass("fadeIn");
-				}
-			}
-		}		
-
-		
 	}); 
 
 	/* FAQS */
-	// $(".faqsItems .collapsible").on("click",function(){
+	$(".faqsItems .collapsible").on("click",function(){
 
-	// 	if( $(this).hasClass('active') ) {
-	// 		$(this).removeClass("active fadeIn");
-	// 	} else {
-	// 		$(".faqsItems .collapsible").removeClass("active fadeIn");
-	// 		$(this).addClass("active fadeIn");
-	// 	}
+		if( $(this).hasClass('active') ) {
+			$(this).removeClass("active fadeIn");
+		} else {
+			$(".faqsItems .collapsible").removeClass("active fadeIn");
+			$(this).addClass("active fadeIn");
+		}
 		
-	// }); 
-
-  $(document).on("click",".collapsible h3.option-name",function(e){
-   e.preventDefault();
-   var parent = $(this).parent();
-   if( parent.hasClass('active') ) {
-     parent.removeClass("active fadeIn");
-   } else {
-     $(".faqsItems .collapsible").removeClass("active fadeIn");
-     parent.addClass("active fadeIn");
-   }
-  }); 
-
-  $(document).on("click",".collapsiblewtw",function(e){
-   e.preventDefault();
-   var parent = $(this).parent();
-   if( parent.hasClass('active') ) {
-     parent.removeClass("active fadeIn");
-   } else {
-     $(".faqsItems .collapsiblewtw").removeClass("active fadeIn");
-     parent.addClass("active fadeIn");
-   }
-  });
-
+	}); 
 
 	if( $(".col.options").length>0 && $("#defaultModel").length>0 ) {
 		var optionsHeight = $(".col.options").height();

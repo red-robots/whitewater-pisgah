@@ -1457,11 +1457,11 @@ html[xmlns] .flexslider .slides{display:block}
 .fw-left{width:100%;float:left}
 section.route-details{background:#f2f2f2}
 section.route-details .flexwrap{padding-top:50px;padding-bottom:70px;margin-left:-30px;margin-right:-30px}
-section.route-details .flexcol{width:100%;text-align:center;padding:30px;margin:10px 0}
+section.route-details .flexcol{width:50%;text-align:center;padding:30px;margin:10px 0}
 section.route-details .icon{margin-bottom:10px}
 section.route-details .icon img{width:auto;height:50px}
-section.route-details .title{text-transform:uppercase;letter-spacing:1px}
-section.route-details .desc{color:#949494;font-size:16px;font-weight:300;line-height:1.2}
+section.route-details .title{text-transform:uppercase;letter-spacing:1px;font-size:16px}
+section.route-details .desc{color:#949494;font-size:14px;font-weight:300;line-height:1.2}
 section.route-gallery #carousel-images{position:relative}
 section.route-gallery #carousel-images .owl-carousel{position:relative}
 section.route-gallery #carousel-images div.image{width:100%;height:auto;float:left;position:relative}
@@ -3700,6 +3700,8 @@ body.search .has-image .text-col{width:67%;float:right;padding-left:30px;display
 .flexslider .slides .iframe-wrapper,.flexslider .slides .image-wrapper{background-image:none !important}
 .flexslider .slides .image-wrapper img{opacity:1}
 }@media(min-width:820px){section.route-details .flexcol{width:50%}
+section.route-details .title{font-size:20px}
+section.route-details .desc{font-size:16px}
 section.route-gallery #carousel-images .owl-prev,section.route-gallery #carousel-images .owl-next{top:46%;-webkit-transform:translateY(-46%);transform:translateY(-46%)}
 section.route-map .map-frame{position:relative;height:50vh}
 .information-tabs-wrap .tabs-info{display:block}

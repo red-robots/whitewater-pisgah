@@ -30,8 +30,9 @@ if( $catId == '23' ) {
 							<?php } ?>
 						<div class="blurred" style="background-image:url('<?php echo $featThumb; ?>')"></div>
 						<div class="image fadeIn wow" data-wow-delay="<?php echo $sec;?>s" style="background-image:url('<?php echo $featImg; ?>')">
-
-							<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="helper">
+							<a href="<?php echo $pagelink ?>" target="_blank">
+								<img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" class="helper">
+							</a>
 						</div>
 					</div>
 					<?php } ?>
@@ -54,7 +55,7 @@ if( $catId == '23' ) {
 									</div>
 								<?php } ?>
 								<div class="buttondiv">
-									<a href="<?php echo $pagelink ?>" class="btn-sm xs"><span>See More</span></a>
+									<a href="<?php echo $pagelink ?>" class="btn-sm xs" target="_blank"><span>See More</span></a>
 								</div>
 							</div>
 						</div>

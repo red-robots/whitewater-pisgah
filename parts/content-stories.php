@@ -78,7 +78,7 @@ $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
 // 	) );
 
 // if ( $blogs->have_posts() ) {  $totalFound = $blogs->found_posts; 
-$response = wp_remote_get( 'https://center.whitewater.org/wp-json/wp/v2/posts?per_page=9' );
+$response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=9' );
 // $response = wp_remote_get( 'https://whitewater.org/wp-json/wp/v2/posts?per_page=9&page=2' );
 // echo '<pre style="background-color: #fff;">';
 // print_r($response);

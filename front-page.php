@@ -71,6 +71,8 @@ $rectangle = THEMEURI . "images/rectangle-narrow.png";
 							$a_image = $a['image'];
 							$a_title = $a['title'];
 							$a_link = $a['link'];
+							$a_desc = $a['short_description'];
+							$a_c = $a['text_color'];
 							$open_link = '<div class="wrap">';
 							$close_link = '</div>';
 							if($a_link) {
@@ -80,8 +82,17 @@ $rectangle = THEMEURI . "images/rectangle-narrow.png";
 							if($a_image) { ?>
 							<div class="imagebox">
 								<?php echo $open_link; ?>
-									<?php if ($a_title) { ?>
-									<span class="title"><?php echo $a_title ?></span>	
+									<?php if( $a_title || $a_desc ) { ?>
+										<div class="info-flex">
+											<?php if ($a_title) { ?>
+												<div class="title"><?php echo $a_title ?></div>	
+											<?php } ?>
+											<?php if ($a_desc) { ?>
+												<span class="a_desc" <?php if($a_c){ ?>style="color: <?php echo $a_c; ?>"<?php } ?>>
+													<?php echo $a_desc ?>
+												</span>	
+											<?php } ?>
+										</div>
 									<?php } ?>
 									<span class="imgwrap">
 										<span class="bg" style="background-image:url('<?php echo $a_image['url']; ?>')">

@@ -57,7 +57,10 @@ while ( have_posts() ) : the_post(); ?>
 
       //Case: Display Map 
       elseif( get_row_layout() == 'map' ) { ?>
-        <?php if( $map = get_sub_field('map_shortcode') ) { 
+        <?php 
+        $key = get_sub_field('map_key');
+        $iframe = get_sub_field('iframe');
+        if( $map = get_sub_field('map_shortcode') || $key ) { 
           if( do_shortcode( $map ) ) { 
             $gpx = get_sub_field('gpx_file');
             ?>
@@ -68,9 +71,9 @@ while ( have_posts() ) : the_post(); ?>
                 <h2 class="stitle">Map</h2>
               </div>
             </div>
-            <div class="map-container fw-left">
-              <div class="map-frame"><?php echo do_shortcode( $map ); ?></div>
-            </div>
+            <!-- <div class="map-container fw-left">
+              <div class="map-frame"><?php //echo do_shortcode( $map ); ?></div>
+            </div> -->
               <?php if( $gpx ){ ?>
                 <div class="center-text">
                   <div class="gpx-download">
@@ -78,10 +81,34 @@ while ( have_posts() ) : the_post(); ?>
                   </div>
                 </div>
               <?php } ?>
+              <div class="map-wrap">
+                <?php if($key) { ?><div class="frame-left"><?php } ?>
+                  <?php echo $iframe; ?>
+                <?php if($key) { ?></div><?php } ?>
+                <?php if($key) { ?>
+                  <div class="frame-right">
+                    <div class="key">
+                      <h3>Map Key</h3>
+                      <?php if(have_rows('map_key')): while(have_rows('map_key')): the_row(); 
+                          $mapColor = get_sub_field('route_color');
+                          $mapName = get_sub_field('route_name');
+                          $mapLine = get_sub_field('route_type');
+                        ?>
+                        <div class="map-detail">
+                          <div class="line" style="border-bottom: 3px <?php echo $mapColor. ' '.$mapLine ?>; ">&nbsp;</div>
+                          <div class="key-label"><?php echo $mapName; ?></div>
+                        </div>
+                      <?php endwhile; endif; ?>
+                    </div>
+                  </div>
+                <?php } ?>
+              </div>
           </section>
           <?php } ?>
         <?php } ?>
-      <?php }  
+        <?php if($iframe) { ?>
+        <?php } ?>
+      <?php } 
 
       //Case: Display Gallery 
       elseif( get_row_layout() == 'gallery' ) { ?>

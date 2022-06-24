@@ -5181,6 +5181,68 @@ body.single-instructions {
 		}
 	}
 }
+.map-wrap {
+	width: 100%;
+	.frame-left {
+		width: 100%;
+		@include tab() {
+			// width: 80%;
+			// float: left;
+		}
+		iframe {
+			width: 100%;
+		}
+	}
+	.frame-right {
+		width: 100%;
+		@include tab() {
+			// width: 18%;
+			// float: right;
+		}
+	}
+	.key {
+		width: 100%;
+		padding: 20px;
+		border: 1px solid #eee;
+		@include tab() {
+			max-width: 300px;
+			margin: 30px auto;
+		}
+		h3 {
+			padding-bottom: 10px;
+			border-bottom: 2px solid #ccc;
+			width: 100%;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		.map-detail {
+			width: 100%;
+			margin: 0 0 5px 0;
+			clear: both;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+			align-items: center;
+			.line {
+				width: 30%;
+				float: left;
+				height: 3px;
+				// &:after {
+				// 	content: '';
+				// 	position: absolute;
+
+				// }
+			}
+			.key-label {
+				width: 60%;
+				margin: 0 0 0 10%;
+				text-align: left;
+				float: left;
+			}
+		}
+	}
+}
 .section-schedule {
 	padding-top: 50px;
 	padding-bottom: 50px;

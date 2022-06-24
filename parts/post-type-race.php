@@ -371,6 +371,9 @@ while ( have_posts() ) : the_post(); ?>
 	//$course_section_icon = get_field("course_section_icon"); 
 	$course_section_title = get_field("course_section_title"); 
 	$course_images = get_field("course_images"); 
+	$imgFrame = get_field('img_iframe');
+	$key = get_field('map_key');
+	$iframe = get_field('iframe');
 	if($course_section_title) { ?>
 	<section id="section-coursemap" data-section="Course Map" class="section-content">
 		<?php if ($course_section_title) { ?>
@@ -384,7 +387,9 @@ while ( have_posts() ) : the_post(); ?>
 			</div>
 		<?php } ?>
 
-		<?php if ($course_images) { 
+		<?php 
+			if( $imgFrame !== 'iframe' || $imgFrame == '' ) {
+			if ($course_images) { 
 			$ci_images[] = array('img1','img1_width');
 			$ci_images[] = array('img2','img2_width');
 			$countImages = 0;
@@ -421,6 +426,34 @@ while ( have_posts() ) : the_post(); ?>
 				</div>
 			</div>
 			<?php } ?>
+		<?php }} ?>
+		<?php if( $imgFrame == 'iframe' ) { ?>
+			<div class="course-images">
+				<div class="inner">
+					<div class="map-wrap">
+						<?php if($key) { ?><div class="frame-left"><?php } ?>
+							<?php echo $iframe; ?>
+						<?php if($key) { ?></div><?php } ?>
+						<?php if($key) { ?>
+							<div class="frame-right">
+								<div class="key">
+									<h3>Map Key</h3>
+									<?php if(have_rows('map_key')): while(have_rows('map_key')): the_row(); 
+											$mapColor = get_sub_field('route_color');
+											$mapName = get_sub_field('route_name');
+											$mapLine = get_sub_field('route_type');
+										?>
+										<div class="map-detail">
+											<div class="line" style="border-bottom: 3px <?php echo $mapColor. ' '.$mapLine ?>; ">&nbsp;</div>
+											<div class="key-label"><?php echo $mapName; ?></div>
+										</div>
+									<?php endwhile; endif; ?>
+								</div>
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+			</div>
 		<?php } ?>
 	</section>
 	<?php } ?>

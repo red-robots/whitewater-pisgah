@@ -1,10 +1,13 @@
 <?php
-$detail = get_sub_field('detail');
-if( have_rows('detail') ) { ?>
+$detail = get_field('details');
+// echo '<pre>';
+// print_r($detail);
+// echo '</pre>';
+if( have_rows('details') ) { ?>
 <section class="route-details fw-left">
   <div class="wrapper">
     <div class="flexwrap">
-    <?php while( have_rows('detail') ): the_row(); 
+    <?php while( have_rows('details') ): the_row(); 
       $icon = get_sub_field('icon');
       $dTitle = get_sub_field('detail_title');
       $dDesc  = get_sub_field('detail');

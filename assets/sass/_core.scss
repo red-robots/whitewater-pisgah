@@ -14339,3 +14339,32 @@ input.nav-search {
 .tribe-common-l-container {
 	padding-top: 0 !important;
 }
+#comments {
+	width: 100%;
+	padding: 40px 0;
+	float: left;
+	input#submit {
+		border: 0;
+		border-radius: 0;
+		background-color: $red;
+		color: #fff;
+		padding: 10px 25px;
+	}
+	time {
+		font-size: 12px;
+	}
+	.reply {
+		a {
+			padding: 10px 25px;
+			border: 1px solid $red;
+			font-size: 14px;
+		}
+	}
+	#respond {
+		margin-top: 30px;
+		border-top: 2px solid $gray;
+		padding: 30px 0;
+		width: 100%;
+		float: left;
+	}
+}

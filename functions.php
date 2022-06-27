@@ -57,7 +57,7 @@ require get_template_directory() . '/inc/theme.php';
  * Description:  This simple plugin blocks all users from being able to register no matter what, 
  *				 this also blocks comments from being able to be inserted into the database.
  */
-require get_template_directory() . '/inc/block-all-registration-and-comments.php';
+// require get_template_directory() . '/inc/block-all-registration-and-comments.php';
 
 /**
  * Customizer additions.

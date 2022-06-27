@@ -21,38 +21,11 @@ while ( have_posts() ) : the_post(); ?>
     <?php while ( have_rows('route') ) : the_row(); ?>
 
       <?php //Case: Details with icons ?>
-      <?php if ( get_row_layout() == 'detail' ) { 
+      <?php if ( get_row_layout() == 'detail' ) { ?>
         
-        $detail = get_sub_field('detail');
-        if( have_rows('detail') ) { ?>
-        <section class="route-details fw-left">
-          <div class="wrapper">
-            <div class="flexwrap">
-            <?php while( have_rows('detail') ): the_row(); 
-              $icon = get_sub_field('icon');
-              $dTitle = get_sub_field('detail_title');
-              $dDesc  = get_sub_field('detail');
-              ?>
-              <div class="flexcol">
-                <?php if ($icon) { ?>
-                <div class="icon">
-                  <img src="<?php echo $icon['url'] ?>" alt="<?php echo $icon['title'] ?>" />
-                </div> 
-                <?php } ?>
-
-                <?php if ($dTitle) { ?>
-                <div class="title"><?php echo $dTitle ?></div> 
-                <?php } ?>
-
-                <?php if ($dDesc) { ?>
-                <div class="desc"><?php echo $dDesc ?></div> 
-                <?php } ?>
-              </div>
-              <?php endwhile; ?>
-            </div>
-          </div>
-        </section>
-        <?php } ?>
+          <?php include(locate_template('parts/details.php')); ?>
+        
+        
       <?php } 
 
       //Case: Display Map 
@@ -60,9 +33,9 @@ while ( have_posts() ) : the_post(); ?>
         <?php 
         $key = get_sub_field('map_key');
         $iframe = get_sub_field('iframe');
-        if( $map = get_sub_field('map_shortcode') || $key ) { 
-          if( do_shortcode( $map ) ) { 
-            $gpx = get_sub_field('gpx_file');
+        //if( $map = get_sub_field('map_shortcode') || $key ) { 
+          //if( do_shortcode( $map ) ) { 
+            $gpx = get_sub_field('gpx_files');
             ?>
           <section id="route-map" class="route-map fw-left section-content" data-section="Map">
             <div class="shead-icon text-center fw-left">
@@ -75,11 +48,13 @@ while ( have_posts() ) : the_post(); ?>
               <div class="map-frame"><?php //echo do_shortcode( $map ); ?></div>
             </div> -->
               <?php if( $gpx ){ ?>
-                <div class="center-text">
-                  <div class="gpx-download">
-                    <a href="<?php echo $gpx; ?>">Download Route <i class="far fa-cloud-download-alt"></i></a>
+                  <div class="center-text">
+                    <?php foreach ($gpx as $d) { ?>
+                      <div class="gpx-download">
+                        <a href="<?php echo $d['gpx_file']; ?>"><?php echo $d['gpx_button_label']; ?> <i class="far fa-cloud-download-alt"></i></a>
+                      </div>
+                    <?php } ?>
                   </div>
-                </div>
               <?php } ?>
               <div class="map-wrap">
                 <?php if($key) { ?><div class="frame-left"><?php } ?>
@@ -104,11 +79,10 @@ while ( have_posts() ) : the_post(); ?>
                 <?php } ?>
               </div>
           </section>
-          <?php } ?>
-        <?php } ?>
-        <?php if($iframe) { ?>
-        <?php } ?>
-      <?php } 
+          <?php //} ?>
+        <?php //} ?>
+        
+      <?php }  
 
       //Case: Display Gallery 
       elseif( get_row_layout() == 'gallery' ) { ?>
@@ -271,6 +245,13 @@ while ( have_posts() ) : the_post(); ?>
 <?php  
 /* Similar Events */ 
 // get_template_part("parts/similar-posts"); 
+?>
+
+<?php  
+/* Comments */ 
+if ( comments_open() || get_comments_number() ) {
+    comments_template();
+  }
 ?>
 
 

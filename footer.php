@@ -165,5 +165,14 @@ jQuery(document).ready(function($){
 	});
 });
 </script>
+<!-- Pisgah Specific code -----  Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-43PY233L2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-43PY233L2K');
+</script>
 </body>
 </html>

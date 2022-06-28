@@ -2208,6 +2208,7 @@ h1.page-title span:after{content:"";display:block;width:30%;height:2px;backgroun
 .schedule-activities-info.new-layout .status-legend span:before{content:"";display:block;width:10px;height:10px;border-radius:100%;background:#CCC;position:absolute;top:3px;left:0}
 .schedule-activities-info.new-layout .status-legend span.open:before{background:#71c943}
 .schedule-activities-info.new-layout .status-legend span.closed:before{background:#ba0d30}
+li.rdate{width:100%;padding:5px;background-color:#f2f2f2;margin:8px 0;font-weight:bold}
 .post-type-race #section-registration .title-w-icon{background-color:#000;color:#FFF}
 .post-type-race .race-types{background:#000}
 .post-type-race .race-types .inner-wrap{padding:5px}
@@ -2251,6 +2252,16 @@ body.subpage.single .content-default .black-section .wrapper a:hover{color:#ba0d
 #section-schedule .schedule-information .activities .info span.time:after{content:"";display:block;width:100vw;height:1px;background-image:url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='2' stroke-linecap='square'/%3e%3c/svg%3e");position:absolute;left:0;bottom:8px;opacity:.4}
 #section-schedule .schedule-information .activities .info span.event{width:70%;text-align:right;line-height:1.2;color:#707070}
 #section-schedule .schedule-information .activities .info span.event span{display:inline;padding-left:7px}
+.sched-inside-new{padding:15px 15px 25px 15px}
+.sched-inside-new .activities{max-width:900px;width:100%;margin:0 auto;padding:0;list-style:none}
+.sched-inside-new .activities .info{padding:8px 0 0 0;font-size:14px;overflow:hidden;border-bottom:1px dotted #707070;margin-bottom:5px}
+.sched-inside-new .activities .info .wrap{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;position:relative}
+.sched-inside-new .activities .info span.time,.sched-inside-new .activities .info span.event{position:relative}
+.sched-inside-new .activities .info span.time span,.sched-inside-new .activities .info span.event span{display:inline-block;position:relative;z-index:3}
+.sched-inside-new .activities .info span.time{font-size:16px;font-weight:500;line-height:1.3;text-transform:uppercase;width:20%;top:-10px}
+.sched-inside-new .activities .info span.time span{padding-right:5px;padding-top:5px;padding-bottom:5px;top:3px}
+.sched-inside-new .activities .info span.event{width:80%;text-align:right;line-height:1.2;color:#707070}
+.sched-inside-new .activities .info span.event span{display:inline;padding-left:7px}
 body.single-instructions #section-schedule{margin-bottom:16px}
 body.single-instructions .section-price-ages .flexwrap{padding-bottom:6px}
 body.single-instructions #primary #section-schedule.section-schedule{margin-top:12px;margin-bottom:12px}

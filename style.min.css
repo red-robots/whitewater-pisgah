@@ -1715,7 +1715,7 @@ body.nav-open .menu-toggle{opacity:0}
 #banner ul.slides.single-slide .type-video .videoIframe{width:100% !important;height:100% !important;position:absolute;top:0;left:0;z-index:-100;display:block !important}
 #banner ul.slides.single-slide .type-video .videoIframeDiv.play_video .videoIframe{z-index:100}
 #banner ul.slides.single-slide .outer-video-wrap{position:absolute;top:0;left:0;width:100%;height:100%;z-index:30}
-#banner.subpageBanner{margin-top:86px}
+#banner.subpageBanner{margin-top:56px}
 #banner.subpageBanner .slideItem img{display:block !important;width:100%;height:auto;float:left}
 #banner.taxonomy-banner{margin-top:16px}
 #banner.taxonomy-banner .static-banner{background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#707070}
@@ -2598,7 +2598,7 @@ body.page-template-page-stories .select2-container--default .select2-results__op
 .content-area-full.post-type-dining .registerBtn:after{content:"";display:block;width:0;height:0;border-left:28px solid #ba0d30;border-top:26px solid transparent;border-bottom:26px solid transparent;position:absolute;top:0;right:-28px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .content-area-full.post-type-dining .registerBtn:hover{background:#000}
 .content-area-full.post-type-dining .registerBtn:hover:after{border-left-color:#000}
-.hero-register-button .stats{display:none;width:100%;position:absolute;top:85px;left:0;z-index:110;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1;letter-spacing:1px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.hero-register-button .stats{display:none;width:100%;position:absolute;top:56px;left:0;z-index:110;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:1;letter-spacing:1px;-webkit-transition:all ease .3s;transition:all ease .3s}
 .hero-register-button .stats.closed{text-align:center;padding:11px 20px 10px;background:rgba(186,13,48,0.9)}
 .hero-register-button .stats.open{text-align:left}
 .hero-register-button .registerBtn{display:inline-block;text-decoration:none;color:#FFF;text-transform:uppercase;font-family:"Lato",sans-serif;font-size:18px;font-weight:400;line-height:50px;background:#ba0d30;height:52px;padding:0 35px;position:relative;-webkit-box-shadow:-12px 8px 17px rgba(0,0,0,0.3);box-shadow:-12px 8px 17px rgba(0,0,0,0.3)}
@@ -3740,7 +3740,7 @@ section.route-stories.half .block{width:50%}
 .topinfo{display:inline-block;float:right;width:auto}
 .topinfo span.daily-schedule{display:inline-block}
 .navbar{-webkit-box-shadow:none;box-shadow:none}
-#banner{margin-top:60px}
+#banner{margin-top:56px}
 #banner .logo-overlay{width:500px}
 #banner .static-banner .slides .iframe-wrapper.yes-mobile .desktop,#banner .flexslider .slides .iframe-wrapper.yes-mobile .desktop{display:block}
 #banner .static-banner .slides .iframe-wrapper.yes-mobile .mobile,#banner .flexslider .slides .iframe-wrapper.yes-mobile .mobile{display:none}
@@ -3750,7 +3750,7 @@ section.route-stories.half .block{width:50%}
 #banner .static-banner .image-wrapper.yes-mobile img.desktop{display:block}
 #banner .static-banner .image-wrapper.yes-mobile img.mobile{display:none}
 #banner ul.slides.single-slide .type-video{margin-top:0}
-#banner.subpageBanner{margin-top:0}
+#banner.subpageBanner{margin-top:56px}
 #banner.taxonomy-banner .static-banner{height:600px}
 #banner.taxonomy-banner .static-banner img.actual-image{display:none}
 body.single-activity #subpageSlides ul.slides,body.single-activity #subpageSlides li.sub-slide-item,body.single-activity #subpageSlides .slide-image,body.single-accommodation #subpageSlides ul.slides,body.single-accommodation #subpageSlides li.sub-slide-item,body.single-accommodation #subpageSlides .slide-image{height:100% !important}

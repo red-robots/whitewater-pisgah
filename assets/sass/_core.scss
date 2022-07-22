@@ -820,7 +820,7 @@ body.nav-open {
 	}
 	margin-top: 55px;
 	@include tab {
-		margin-top: 60px;
+		margin-top: 56px;
 	}
 	.logo-overlay {
 		width: 200px;
@@ -1152,9 +1152,9 @@ body.nav-open {
 	}
 }
 #banner.subpageBanner {
-	margin-top: 86px;
+	margin-top: 56px;
 	@include tab {
-		margin-top: 0;
+		margin-top: 56px;
 	}
 	.slideItem {
 		img {
@@ -7281,7 +7281,7 @@ body.page-template-page-stories {
 		display: none;
 		width: 100%;
 		position: absolute;
-		top: 85px;
+		top: 56px;
 		left: 0;
 		z-index: 110;
 		color: #FFF;

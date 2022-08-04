@@ -15,6 +15,16 @@
  */
 define('THEMEURI',get_template_directory_uri() . '/');
 
+
+// Override the default max width to go full screen
+function lets_change_the_max_width( $args ) {
+    $args['max_width'] = '1380';
+    return $args;
+}
+add_filter( 'wpbs_get_calendar_output_default_args', 'lets_change_the_max_width' );
+
+
+
 function custom_mime_types( $mimes ) { 
     // Add new MIME types here
     $mimes['kml'] = 'application/vnd.google-earth.kml+xml';

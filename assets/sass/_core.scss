@@ -14403,7 +14403,7 @@ input.nav-search {
 	}
 }
 .rates-box {
-	max-width: 500px;
+	max-width: 1000px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -14450,4 +14450,32 @@ h1.tribe-events-single-event-title,
 }
 .tribe-events-schedule h2 {
 	width: 100%;
+}
+/*
+
+	WP Booking System Overrides
+
+*/
+.wpbs-container[data-columns] .wpbs-calendars .wpbs-calendar {
+	float: none !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.wpbs-legend {
+	text-align: center !important;
+}
+.wpbs-main-wrapper .wpbs-form-container {
+	margin: 0 auto !important;
+}
+.wpbs-prev, .wpbs-next {
+	border-radius: 0 !important;
+}
+body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type="submit"] {
+	background-color: $red !important;
+	&:hover {
+		background-color: rgba($red, .7);
+	}
+}
+body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type=submit] {
+	border-radius: 0 !important;
 }

@@ -3680,7 +3680,7 @@ ul.items .show{display:block}
 body.search .page-header{margin-top:40px}
 body.search .page-header a{color:#000}
 input.nav-search{width:100%;border:0;height:30px;border-radius:15px;background-color:rgba(255,255,255,0.6);padding:0 10px;margin:10px 0 0 0;background-image:url(images/eyeglass.png);background-position:right 10px top 5px;background-repeat:no-repeat}
-.rates-box{max-width:500px;margin:0 auto;text-align:center}
+.rates-box{max-width:1000px;margin:0 auto;text-align:center}
 .tribe-events-header__events-bar{display:none !important}
 .tribe-common-l-container{padding-top:0 !important}
 #comments{width:100%;padding:40px 0;float:left}
@@ -3690,6 +3690,13 @@ input.nav-search{width:100%;border:0;height:30px;border-radius:15px;background-c
 #comments #respond{margin-top:30px;border-top:2px solid #f2f2f2;padding:30px 0;width:100%;float:left}
 .tribe-events-single>.tribe_events,h1.tribe-events-single-event-title,.tribe-events-schedule,.tribe-events-schedule h2{text-align:center}
 .tribe-events-schedule h2{width:100%}
+.wpbs-container[data-columns] .wpbs-calendars .wpbs-calendar{float:none !important;margin-left:auto !important;margin-right:auto !important}
+.wpbs-legend{text-align:center !important}
+.wpbs-main-wrapper .wpbs-form-container{margin:0 auto !important}
+.wpbs-prev,.wpbs-next{border-radius:0 !important}
+body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type="submit"]{background-color:#ba0d30 !important}
+body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type="submit"]:hover{background-color:rgba(186,13,48,0.7)}
+body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type=submit]{border-radius:0 !important}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}

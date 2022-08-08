@@ -3697,6 +3697,8 @@ input.nav-search{width:100%;border:0;height:30px;border-radius:15px;background-c
 body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type="submit"]{background-color:#ba0d30 !important}
 body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type="submit"]:hover{background-color:rgba(186,13,48,0.7)}
 body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type=submit]{border-radius:0 !important}
+.wpbs-date{border:1px solid #ccc}
+.wpbs-container h2{display:none}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .featured-events-section .postbox{width:50%;float:left}

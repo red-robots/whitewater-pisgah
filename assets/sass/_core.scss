@@ -14479,3 +14479,10 @@ body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[typ
 body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type=submit] {
 	border-radius: 0 !important;
 }
+// .wpbs-container.wpbs-calendar-1 .wpbs-legend-item-icon-1 div:first-of-type,
+.wpbs-date {
+	border: 1px solid #ccc;
+}
+.wpbs-container h2 {
+	display: none;
+}

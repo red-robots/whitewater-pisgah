@@ -14453,6 +14453,12 @@ h1.tribe-events-single-event-title,
 }
 /*
 
+	popup override
+
+*/
+
+/*
+
 	WP Booking System Overrides
 
 */
@@ -14485,4 +14491,37 @@ body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[typ
 }
 .wpbs-container h2 {
 	display: none;
+}
+/* The container must be positioned relative: */
+.wpbs-select-container {
+  position: relative;
+  font-family: Arial;
+}
+
+// .wpbs-select-container select,
+// .select-hide,
+// .select-items {
+//   display: none; /*hide original SELECT element: */
+// }
+
+
+.wpbs-calendar-header-navigation {
+	font-size: 18px !important;
+	@include tab() {
+		font-size: 30px !important;
+	}
+}
+.wpbs-container .wpbs-calendars .wpbs-calendar .wpbs-calendar-header {
+	background-color: rgba(#fff, 0);
+}
+.wpbs-container .wpbs-calendars .wpbs-calendar .wpbs-calendar-header .wpbs-calendar-header-navigation .wpbs-next,
+.wpbs-container .wpbs-calendars .wpbs-calendar .wpbs-calendar-header .wpbs-calendar-header-navigation .wpbs-prev {
+	width: 50px;
+	height: 50px;
+	margin-top: -27px;
+}
+.wpbs-container .wpbs-calendars .wpbs-calendar {
+	// background-color: #f2f2f2;
+	border: 1px solid #ccc;
+	padding: 40px 20px 20px 20px;
 }

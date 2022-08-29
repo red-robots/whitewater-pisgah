@@ -3697,7 +3697,8 @@ input.nav-search{width:100%;border:0;height:30px;border-radius:15px;background-c
 body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type="submit"]{background-color:#ba0d30 !important}
 body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type="submit"]:hover{background-color:rgba(186,13,48,0.7)}
 body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[type=submit]{border-radius:0 !important}
-.wpbs-date{border:1px solid #ccc}
+.wpbs-date,.wpbs-legend .wpbs-legend-item-icon{border:1px solid #ccc}
+.wpbs-calendar-header-inner a{color:#333 !important;text-decoration:none !important;border-bottom:none !important}
 .wpbs-container h2{display:none}
 .wpbs-select-container{position:relative;font-family:Arial}
 .wpbs-calendar-header-navigation{font-size:18px !important}

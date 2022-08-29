@@ -14486,8 +14486,13 @@ body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[typ
 	border-radius: 0 !important;
 }
 // .wpbs-container.wpbs-calendar-1 .wpbs-legend-item-icon-1 div:first-of-type,
-.wpbs-date {
+.wpbs-date, .wpbs-legend .wpbs-legend-item-icon {
 	border: 1px solid #ccc;
+}
+.wpbs-calendar-header-inner a {
+	color: #333 !important;
+	text-decoration: none !important;
+	border-bottom: none !important;
 }
 .wpbs-container h2 {
 	display: none;

@@ -7,8 +7,9 @@ $imgFrame = get_field('img_iframe_2');
 $key = get_field('map_key_2');
 $iframe = get_field('iframe_2');
 $gpx = get_field('gpx_files_2');
+$anchor = sanitize_title_with_dashes($course_section_title);
 if($course_section_title) { ?>
-<section id="section-coursemap" data-section="<?php echo $course_section_title; ?>" class="section-content">
+<section id="section-<?php echo $anchor; ?>" data-section="<?php echo $course_section_title; ?>" class="section-content">
 	<?php if ($course_section_title) { ?>
 		<div class="title-w-icon">
 			<div class="wrapper">

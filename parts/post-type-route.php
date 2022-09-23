@@ -89,18 +89,39 @@ while ( have_posts() ) : the_post(); ?>
         <?php if( $imgs = get_sub_field('gallery') ) { ?>
         <section id="route-gallery" class="route-gallery fw-left" data-section="Gallery">
           <div class="carousel-wrapper-section full">
-            <div id="carousel-images">
-              <div class="loop owl-carousel owl-theme">
-              <?php foreach( $imgs as $img ) { ?>
-                <div class="item">
+            <!-- <div id="carousel-images">
+              <div class="loop owl-carousel owl-theme"> -->
+              
+                <div class="flexslider swap">
+                  <ul class="slides">
+                    <?php foreach( $imgs as $img ) { ?>
+                      <li>
+                        <img src="<?php echo $img['url']; ?>" alt="" aria-hidden="true" />
+                      </li>
+                    <?php } ?>
+                  </ul>
+                </div>
+
+              <div id="carousel-images" class="camp-caro swap">
+                <div class="loop owl-carousel owl-theme">
+                <?php foreach( $imgs as $img ) { ?>
+                  <div class="item">
+                    <div class="image" style="background-image:url('<?php echo $img['url']?>')">
+                      <img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" />
+                    </div>
+                  </div>
+                <?php } ?>
+                </div>
+              </div>
+                <!-- <div class="item">
                   <div class="image">
                     <div class="bg" style="background-image:url('<?php echo $img['url']?>')"></div>
                     <img src="<?php echo $placeholder ?>" alt="" aria-hidden="true" />
                   </div>
-                </div>
-              <?php } ?>
-              </div>
-            </div>
+                </div> -->
+              <?php //} ?>
+              <!-- </div>
+            </div> -->
           </div>
         </section>
         <?php } ?>

@@ -3607,6 +3607,7 @@ ul.items .show{display:block}
 .diff-filter-wrap.hide{max-width:0}
 .diff-filter-wrap.show{max-width:1000px}
 #fi .select2-container.show{width:100% !important}
+.camp-caro.swap{display:none}
 .sect-div-pad{padding:30px 0}
 .tou{width:100%;background-color:#191919;color:rgba(255,255,255,0.7);float:left;padding:40px 0;font-size:12px;line-height:1.5}
 .gform_body p{width:100%;float:left}
@@ -4051,6 +4052,8 @@ section.accomm-purchase .button a{padding:20px 30px}
 }@media screen and (min-width:820px){.filter-wrapper.filterstyle .flexwrapfilters{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .double-filter-wrapper .inside{width:45%;float:left;padding:2.5%}
 .double-filter-wrapper .filter-wrapper .select,.double-filter-wrapper .filter-wrapper .select-wrap.align-middle{width:100%}
+.camp-caro.swap{display:block}
+.flexslider.swap{display:none}
 }@media(min-width:960px){.topinfo span.el{font-size:12px}
 #banner.taxonomy-banner .static-banner{height:650px}
 .home-video-gallery.count1 .video-big{height:600px}

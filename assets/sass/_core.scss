@@ -13785,6 +13785,17 @@ ul.items {
 		width: 100% !important;
 	}
 }
+.camp-caro.swap {
+	display: none;
+	@media screen and (min-width: $tabwidth) {
+		display: block;
+	}
+}
+.flexslider.swap {
+	@media screen and (min-width: $tabwidth) {
+		display: none;
+	}
+}
 .sect-div-pad {
 	padding: 30px 0;
 }

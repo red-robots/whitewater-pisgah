@@ -563,6 +563,55 @@ if($sponsors) { ?>
 </div>
 <?php } ?>
 
+
+<?php // Popups for Marketing 
+$popup_on = get_field('popup_on');
+$popup_creative = get_field('popup_creative');
+$popup_text = get_field('popup_text');
+$popup_link = get_field('popup_link');
+// echo '<pre>';
+// print_r($popup_creative);
+// echo '</pre>';
+?>
+<div style="display: none;">
+	<div class="race-popup ajax" id="race-pop">
+		<?php if($popup_link) {?><a href="<?php echo $popup_link['url']; ?>" target="<?php echo $popup_link['target']; ?>"><?php } ?>
+			<?php if($popup_creative){ ?>
+				<div class="race-pop-img">
+					<img src="<?php echo $popup_creative['url']; ?>" width="<?php echo $popup_creative['width']; ?>" height="<?php echo $popup_creative['height']; ?>" >
+				</div>
+			<?php } ?>
+			<?php if($popup_text){ ?>
+				<div class="race-pop-txt">
+					<?php echo $popup_text; ?>
+				</div>
+			<?php } ?>
+		<?php if($popup_link) {?></a><?php } ?>
+	</div>
+</div>
+
+<?php if( $popup_on == 'yes' ){ ?>
+	<?php if (!isset($_COOKIE['racepuppisgah'])): ?>
+
+	    <!-- replace this whatever you want to show -->
+	    <script>
+	    	$(document).ready(function(){
+			    $.colorbox({
+			    	inline:true, 
+			    	href:".ajax",
+			    	innerWidth: 300
+			    });
+			});
+	    </script>
+
+	    <?php
+	    setcookie('racepuppisgah', true,  time()+2592000); // 30 days
+	    ?>
+
+	<?php endif; ?>
+<?php } ?>
+<script>
+
 <script>
 jQuery(document).ready(function($){
 

@@ -21,5 +21,24 @@ if ( empty( (string) $event->excerpt ) ) {
 }
 ?>
 <div class="tribe-events-calendar-month__calendar-event-tooltip-description tribe-common-b3">
-	<?php echo (string) $event->excerpt; ?>
+	<?php //echo (string) $event->excerpt; ?>what up g
+	<?php 
+		$e = get_the_excerpt();
+		echo do_shortcode( $d );
+	 ?>
 </div>
+<?php if( $e ) { ?>
+	<style type="text/css">
+		.tribe-events-tooltip-theme {
+		  width: 1200px !important;
+		  max-width: unset !important;
+		}
+		.tribe-events-tooltip-theme .tribe-events-calendar-month__calendar-event-tooltip-featured-image-wrapper {
+		  float: left;
+		  margin-right: 2em;
+		}
+		.tribe-events-tooltip-theme .tribe-events-calendar-month__calendar-event-tooltip-title {
+		  clear: none;
+		}
+	</style>
+<?php } ?>

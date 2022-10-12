@@ -220,7 +220,7 @@ while ( have_posts() ) : the_post(); ?>
 	$end = get_field("end_date");
 	$event_date = get_event_date_range($start,$end,true);
 	if($sched_section_title || $has_race_types) { ?>
-	<section id="section-registration" data-section="Schedule" class="section-content">
+	<section id="section-schedule" data-section="Schedule" class="section-content">
 		<?php if ($sched_section_title) { ?>
 			<div class="title-w-icon">
 				<div class="wrapper">
@@ -610,7 +610,7 @@ $popup_link = get_field('popup_link');
 
 	<?php endif; ?>
 <?php } ?>
-<script>
+
 
 <script>
 jQuery(document).ready(function($){

@@ -1,4 +1,4 @@
-<?php //if ( $info = get_field('additional_info_race') ) { ?>
+<?php if ( $info = get_field('additional_info_race') ) { ?>
   <?php if( have_rows('additional_info_race') ) { ?>
   <section id="route-information" class="route-information fw-left section-content" data-section="Information">
     <div class="shead-icon text-center fw-left">
@@ -42,4 +42,4 @@
     </div>
   </section>
   <?php } ?>
-<?php //} ?>
+<?php } ?>

@@ -1,12 +1,29 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof2(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
 /**
  *	Custom jQuery Scripts
  *	
  *	Developed by: Lisa DeBona
  */
+
+
 jQuery(document).ready(function ($) {
   $("select#diff").change(function () {
     var diffResult = $(this).val();
@@ -336,7 +353,7 @@ jQuery(document).ready(function ($) {
   $(document).on("click", "#loadMoreBtn", function (event) {
     event.preventDefault();
     var loadButton = $(this);
-    var pageURL = _typeof($("a.page-numbers").eq(0)) != undefined ? $("a.page-numbers").attr("href") : '';
+    var pageURL = _typeof2($("a.page-numbers").eq(0)) != undefined ? $("a.page-numbers").attr("href") : '';
     var current_page = $(this).attr("data-current");
     var next_page = parseInt(current_page) + 1;
     var last_page = $(this).attr("data-end");

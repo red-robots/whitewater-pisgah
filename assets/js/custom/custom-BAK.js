@@ -51,108 +51,47 @@ $("#selectByProgram").change(function() {
 	}
 });
 
- /* NAVIGATION */
+	/* NAVIGATION */
+	$(".menu-toggle").on("click",function(e){
+		e.preventDefault();
+		$("body").addClass("nav-open");
+		$("#site-navigation").addClass("open");
+	});
 
-  $(".menu-toggle").on("click", function (e) {
-    e.preventDefault();
-    $("body").toggleClass("nav-open"); // $(".corpnav").addClass("open");
-    //$(".corpnav").addClass("open");
-    // $("li.corplink").addClass('active');
+	$("#closeNav,#overlay").on("click",function(e){
+		e.preventDefault();
+		$("body").removeClass("nav-open");
+		$("#site-navigation").removeClass("open");
+		$("#site-navigation *").removeClass("open");
+		$("#site-navigation li.parent-link").removeClass("active");
+		$("#site-navigation").removeClass("child-open");
+	});
 
-    $(".corpnav").toggleClass('open');
-  });
-  $("#closeNav,#overlay").on("click", function (e) {
-    e.preventDefault();
-    $("body").removeClass("nav-open"); 
-    
-    /* Close all the elements inside navigation that are opened or active */
+	$("#closeNavChild").on("click",function(e){
+		e.preventDefault();
+		$("#childrenNavs").removeClass("open");
+		$(".children-group").removeClass("open");
+		$("#site-navigation li.parent-link").removeClass("active");
+		$("#site-navigation").removeClass("child-open");
+	});
 
-    $(".defaultNav").removeClass("open");
-    $('.nav__main').show();
-    $('.nav__other').removeClass('show').html("");
-    $('.prenav li.sitelinks').removeClass("active");
-    $(".defaultNav li.parent-link").removeClass("active");
-    $(".defaultNav li.parent-link a.parentlink").removeClass("active");
-    $('.navigation__children').removeClass("open");
-    $('.navigation__children .navchild-inner [data-parent]').removeClass("open");
-  });
-  $("#closeNavChild").on("click", function (e) {
-    e.preventDefault();
-    $("#childrenNavs").removeClass("open");
-    $(".children-group").removeClass("open");
-    $(".corpnav li.parent-link").removeClass("active");
-    $(".corpnav").removeClass("child-open");
-  });
-  $(document).on("click", ".defaultNav .has-children a.parentlink", function (e) {
-    e.preventDefault();
-    var link = $(this).attr("href");
-
-    if (link == '#') {
-      $(".defaultNav li.parent-link").removeClass("active");
-      $(".defaultNav li.parent-link a.parentlink").removeClass("active");
-      $('.navigation__children').removeClass("open");
-      $('.navigation__children .navchild-inner [data-parent]').removeClass("open");
-      $(this).addClass("active");
-      $(this).parents("li").addClass('active');
-      var parent = $(this).parents('.navgroup');
-      var child_menu = $(this).attr("data-parent");
-
-      if (parent.find('.navigation__children ' + child_menu).length > 0) {
-        parent.find('.navigation__children').addClass('open');
-        parent.find('.navigation__children ' + child_menu).addClass("open");
-      } 
-
-    }
-  });
-  
-  /* PREV NAV */
-  $(document).on('click', '.prenav .sitelinks a[data-nav]', function (e) {
-    e.preventDefault();
-    var currentParent = $(this).parent();
-  var url = $(this).attr('href');
-    var target = $(this).attr('data-nav');
-    var linkName = $(this).text().trim();
-    $('.prenav a[data-nav]').parent().not(currentParent).removeClass('active');
-    currentParent.addClass('active');
-    $(this).addClass('active');
-    
-  if(target=='.default') {
-    /* If hashtag points to specific element, add your custom function to hashtag click event.
-     * look for ==> $('a[href*="#"]:not([href="#"])').click(function () {}
-    */
-    if(url=='#') { 
-      resetDefaultNavs( $(this) );  
-    } 
-  } else {
-    if ($(target).length) {
-      var navInnerContent = $(target).find('.nav__content').html();
-      $('.nav__main').hide();
-      $('.nav__other').html(navInnerContent);
-      $('.nav__other').addClass('show');
-      $('.nav__other').attr('data-for', linkName);
-    } 
-  }
-    
-  });
-
-
-  /* When clicking the link with data-nav='.default', children links go back to default */  
-  function resetDefaultNavs(selector) {
-    if( selector.attr('data-nav')!=undefined ) {
-        if(selector.attr('data-nav')=='.default') {
-          $('.navgroup.nav__main').show();
-          $('.navgroup.nav__other').removeClass('show');
-          $('.navgroup.nav__other').attr('data-for',"");
-          $('.prenav li.sitelinks').removeClass("active");
-          $(".defaultNav li.parent-link").removeClass("active");
-          $(".defaultNav li.parent-link a.parentlink").removeClass("active");
-          $('.navigation__children').removeClass("open");
-          $('.navigation__children .navchild-inner [data-parent]').removeClass("open");
-          selector.addClass('active');
-          selector.parent().addClass('active');
-        }
-      }
-  } 
+	$(document).on("click",".navigation .has-children a.parentlink", function(e){
+		e.preventDefault();
+		var link = $(this).attr("href");
+		if(link=='#') {
+			var child_menu = $(this).attr("data-parent");
+			$("#site-navigation li.parent-link").removeClass("active");
+			$(".children-group").removeClass("open");
+			if( $(".children-group"+child_menu).length > 0 ) {
+				$("#site-navigation").addClass("child-open");
+				$("#childrenNavs").addClass("open");
+				$(".children-group"+child_menu).addClass("open");
+				$(this).addClass("active");
+				$(this).parents("li").addClass('active');
+			}
+		}
+		
+	});
 
 
 	$('[data-fancybox]').fancybox({

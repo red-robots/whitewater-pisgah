@@ -70,6 +70,10 @@ if($postHeroImage) {
 	<?php
 	/* NAVIGATION */
 	get_template_part("parts/navigation");
+	get_template_part("parts/navigation-whitewater");
+	get_template_part("parts/navigation-center");
+	get_template_part("parts/navigation-santee");
+	get_template_part("parts/navigation-grayson");
 	?>
 
 

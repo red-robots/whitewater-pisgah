@@ -3724,6 +3724,7 @@ body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[typ
 .prenav ul{margin:0;padding:0}
 .prenav li{margin:20px 0;display:block}
 .prenav li.active a{background-color:rgba(255,255,255,0.2)}
+.prenav li.umbrella{text-indent:-9000px;background-image:url(images/nav-logo.png);background-position:center center;background-size:30px 24px;background-repeat:no-repeat}
 .prenav a{color:#fff;padding:8px 20px;text-decoration:none;font-size:16px;font-weight:bold;text-transform:uppercase;display:block}
 @media screen and (max-device-width:1024px){.featured-events-section{background-color:#FFF}
 .featured-events-section .flexwrap{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}

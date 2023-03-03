@@ -14657,19 +14657,25 @@ body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[typ
 		}
 		&.umbrella {
 			text-indent: -9000px;
-			background-image: url(images/nav-logo.png);
+			background-image: url(images/nav-logo-2.png);
 			background-position: center center;
-			background-size: 30px 24px;
+			background-size: 100px 15px;
 			background-repeat: no-repeat;
+			@media screen and (min-width: $tabwidth) {
+				background-size: 150px 23px;
+			}
 		}
 	}
 	a {
 		color: #fff;
-		padding: 8px 20px;
+		padding: 8px 28px;
 		text-decoration: none;
 		font-size: 16px;
 		font-weight: bold;
 		text-transform: uppercase;
 		display: block;
+		@media screen and (min-width: $tabwidth) {
+			padding: 8px 60px;
+		}
 	}
 }

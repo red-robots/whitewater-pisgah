@@ -913,9 +913,16 @@ jQuery(document).ready(function ($) {
 
       if (parent.find('.navigation__children ' + child_menu).length > 0) {
         parent.find('.navigation__children').addClass('open');
-        parent.find('.navigation__children ' + child_menu).addClass("open");
+        parent.find('.navigation__children ' + child_menu).addClass("open"); //$('#closeNavChild').addClass('red');
+
+        $('#closeNav').addClass('hide');
       }
     }
+  });
+  $(document).on("click", ".childNavCloseBtn", function (e) {
+    e.preventDefault();
+    $(this).parents('.navigation__children').removeClass('open');
+    $('#closeNav').removeClass('hide');
   });
   /* PREV NAV */
 

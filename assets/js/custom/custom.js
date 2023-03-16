@@ -115,33 +115,43 @@ $("#selectByProgram").change(function() {
   });
   
   /* PREV NAV */
-  $(document).on('click', '.prenav .sitelinks a[data-nav]', function (e) {
+  $(document).on('click','.prenav .sitelinks a[data-nav]', function(e){
     e.preventDefault();
     var currentParent = $(this).parent();
-  var url = $(this).attr('href');
+    var url = $(this).attr('href');
     var target = $(this).attr('data-nav');
     var linkName = $(this).text().trim();
+    var siteLink = ( typeof $(this).attr('data-home')!='undefined' || $(this).attr('data-home') ) ? $(this).attr('data-home') : '';
+    
+    if( currentParent.hasClass('active') ) {
+      if(siteLink) {
+        window.location.href = siteLink;
+      }
+    } 
+
+
     $('.prenav a[data-nav]').parent().not(currentParent).removeClass('active');
     currentParent.addClass('active');
     $(this).addClass('active');
-    
-  if(target=='.default') {
+    //console.log(target);
+
+    if(target=='.default') {
     /* If hashtag points to specific element, add your custom function to hashtag click event.
      * look for ==> $('a[href*="#"]:not([href="#"])').click(function () {}
     */
     if(url=='#') { 
       resetDefaultNavs( $(this) );  
-    } 
-  } else {
-    if ($(target).length) {
-      var navInnerContent = $(target).find('.nav__content').html();
-      $('.nav__main').hide();
-      $('.nav__other').html(navInnerContent);
-      $('.nav__other').addClass('show');
-      $('.nav__other').attr('data-for', linkName);
-    } 
-  }
-    
+      } 
+    } else {
+      if ($(target).length) {
+        var navInnerContent = $(target).find('.nav__content').html();
+        $('.nav__main').hide();
+        $('.nav__other').html(navInnerContent);
+        $('.nav__other').addClass('show');
+        $('.nav__other').attr('data-for', linkName);
+
+      } 
+    }
   });
 
 

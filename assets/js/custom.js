@@ -932,9 +932,17 @@ jQuery(document).ready(function ($) {
     var url = $(this).attr('href');
     var target = $(this).attr('data-nav');
     var linkName = $(this).text().trim();
+    var siteLink = typeof $(this).attr('data-home') != 'undefined' || $(this).attr('data-home') ? $(this).attr('data-home') : '';
+
+    if (currentParent.hasClass('active')) {
+      if (siteLink) {
+        window.location.href = siteLink;
+      }
+    }
+
     $('.prenav a[data-nav]').parent().not(currentParent).removeClass('active');
     currentParent.addClass('active');
-    $(this).addClass('active');
+    $(this).addClass('active'); //console.log(target);
 
     if (target == '.default') {
       /* If hashtag points to specific element, add your custom function to hashtag click event.

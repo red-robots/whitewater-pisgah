@@ -36,9 +36,9 @@ function anti_email_spam ($string) {
       $new2 = antispambot($em).'</a>';
       $string = str_replace($rep2, $new2, $string);
     }
-    $content = wpautop($string);
+    $content = $string;
   } else {
-    $content = wpautop($string);
+    $content = $string;
   }
   return $content;
 }

@@ -51,13 +51,13 @@ get_header(); ?>
 									<?php if ($contact_info) { ?>
 										<div class="address col right">
 											<div class="inside">
-												<div class="wrap"><?php echo anti_email_spam($contact_info); ?></div>
+												<div class="wrap"><?php echo $contact_info; ?></div>
 											</div>
 										</div>	
 									<?php } ?>
 								</div>
 							<?php } ?>
-							<div class="contact-form"><?php echo anti_email_spam($contact_form); ?></div>
+							<div class="contact-form"><?php echo $contact_form; ?></div>
 						</div>
 					</div>
 					<?php } ?>

@@ -810,6 +810,51 @@ $("#selectByProgram").change(function() {
 	    }
   });
 
+/*
+
+	Dropdowns for Isotope on Rest Api Race Pages
+
+*/
+	$(".fs-rest .fs-label-wrap").on("click", function (e) {
+		e.preventDefault();
+		$(this).toggleClass("fs-open"); // $(".corpnav").addClass("open");
+		//$(".corpnav").addClass("open");
+		// $("li.corplink").addClass('active');
+
+		$(this).next('.fs-dropdown').toggleClass('fs-hidden');
+	});
+
+	// init Isotope For the Rest API Race Pages
+
+	var $container = $('#rest-isotope').isotope({
+	  itemSelector: '.item'
+	});
+
+	// var $output = $('#output');
+
+	// filter with selects and checkboxes
+	var $checkboxes = $('#form-ui input');
+
+	$checkboxes.change( function() {
+	  // map input values to an array
+	  var inclusives = [];
+	  // inclusive filters from checkboxes
+	  $checkboxes.each( function( i, elem ) {
+	    // if checkbox, use value if checked
+	    if ( elem.checked ) {
+	      inclusives.push( elem.value );
+	    }
+	  });
+
+	  // combine inclusive filters
+	  var filterValue = inclusives.length ? inclusives.join(', ') : '*';
+
+	  // $output.text( filterValue );
+	  $container.isotope({ filter: filterValue })
+	});
+
+	// End Isotope For the Rest API Race Pages
+
 
 
 Isotope.Item.prototype._create = function() {

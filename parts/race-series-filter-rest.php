@@ -30,6 +30,7 @@ function get_race_posts() {
     $race_post = array(
 		'title' => $post['title']['rendered'],
 		'pagelink' => $post['link'],
+		'locationname' => $post['acf']['eventlocation_text'],
 		'start' => $post['acf']['start_date'],
 		'end' => $post['acf']['end_date'],
 		'hidePostfromMainPage' => $post['acf']['hidePostfromMainPage'],
@@ -206,6 +207,7 @@ $i=1;
       				$p = $event['pID'];
 					$title = $event['title'];
 					$pagelink = $event['pagelink'];
+					$locationname = $event['locationname'];
 					$start = $event['start'];
 					$end = $event['end'];
 					$event_date = get_event_date_range($start, $end);
@@ -262,7 +264,14 @@ $i=1;
 												<div class="map">
 													<img src="<?php bloginfo('template_url'); ?>/images/map.png">
 												</div>
-												<div class="location"><?php echo 'Pisgah'; ?></div>
+												<div class="location">
+													<?php if('eventlocation' != '') {
+														echo $locationname;
+													} else {
+														echo 'Pisgah'; 
+													}
+													?>
+												</div>
 											</div>
 											<div class="button">
 												<a href="<?php echo $pagelink ?>" class="btn-sm"><span>See Details</span></a>

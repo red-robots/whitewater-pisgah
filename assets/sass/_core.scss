@@ -14737,6 +14737,22 @@ body.subpage .wpbs-main-wrapper .wpbs-form-container .wpbs-form-field button[typ
 Isotope dropdowns to mimic Facets.
 
 */
+#rest-isotope {
+	.item.rest {
+		@media screen and (min-width: 1250px) {
+			// min-height: 980px;
+		}
+		@media screen and (min-width: 1500px) {
+			min-height: 970px;
+		}
+		@media screen and (min-width: 1750px) {
+			min-height: 1000px;
+		}
+		@media screen and (min-width: 2000px) {
+			min-height: 1100px;
+		}
+	}
+}
 .fs-rest {
 	&.fs-wrap.multiple {
 		.fs-option {

@@ -218,7 +218,7 @@ $i=1;
 					$aT = $event['terms'];
 							
 							?>
-							<div id="post-<?php echo $id?>" class="item postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?> <?php echo implode(" ", $aT); ?>" data-filter="">
+							<div id="post-<?php echo $id?>" class="item rest postbox <?php echo ($thumbImage) ? 'has-image':'no-image' ?> <?php echo $eventStatus ?> <?php echo implode(" ", $aT); ?>" data-filter="">
 								<div class="inside">
 									<?php if ($eventStatus=='completed') { ?>
 										<div class="event-completed"><span>Event Complete</span></div>

@@ -81,8 +81,52 @@ function get_race_posts() {
 $races = get_race_posts();
 
 
+
+function fetch_terms() {
+    // URL to fetch terms from
+    $url = 'https://center.whitewater.org/wp-json/wp/v2/instruction_type?post_type=instructions&per_page=100&acf_format=standard';
+
+    // Get the response using wp_remote_get()
+    $response = wp_remote_get($url);
+
+    // Check if the response has any errors
+    if (is_wp_error($response)) {
+        return []; // Return an empty array if there's an error
+    }
+
+    // Decode the JSON response
+    $terms_data = json_decode(wp_remote_retrieve_body($response), true);
+
+    // Check if the response is not empty and is an array
+    if (empty($terms_data) || !is_array($terms_data)) {
+        return []; // Return an empty array if the response is empty or not an array
+    }
+
+   
+    $terms = array();
+    foreach ($terms_data as $term_data) {
+    	$terms[] = array(
+    		'title' => $term_data['name'],
+			'pagelink' => $term_data['link'],
+			'thumbImage' => array(
+				'ID' => $term_data['acf']['category_image']['ID'],
+				'url' => $term_data['acf']['category_image']['url']
+			),
+		);
+    }
+
+    // Return the terms
+    return $terms;
+}
+
+
+$terms = fetch_terms();
+
+
+
+
 // echo '<pre>';
-// print_r($races);
+// print_r($terms);
 // echo '</pre>';
 
 $i=1; 
@@ -202,7 +246,14 @@ $i=1;
 			    ?>
 
 		      <?php 
-		      foreach ($sorted_events as $event) {
+		      // merge everythig else
+		      $finalArray = array_merge( $sorted_events, $terms );
+		      // echo '<pre>';
+		      // print_r($finalArray);
+		      // echo '</pre>';
+
+		      // Loop through them all
+		      foreach ($finalArray as $event) {
 		      	
       				$p = $event['pID'];
 					$title = $event['title'];

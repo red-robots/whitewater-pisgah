@@ -64,6 +64,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-location-alt',
             'supports'  => array('title','editor')
         ),
+        array(
+            'post_type' => 'retreat',
+            'menu_name' => 'Retreats',
+            'plural'    => 'Retreats',
+            'single'    => 'Retreat',
+            'menu_icon' => 'dashicons-book-alt',
+            'supports'  => array('title','editor')
+        ),
         // array(
         //     'post_type' => 'film-series',
         //     'menu_name' => 'Film Series',

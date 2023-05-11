@@ -37,7 +37,7 @@ function get_race_posts() {
 		'event_date' => $event_date,
 		'short_description' => $short_description,
 		'eventStatus' => ( $post['acf']['eventstatus'] ) ? $post['acf']['eventstatus']:'upcoming',
-		'thumbImage' => $post['acf']['thumbnail_image'],
+		'thumbImage' => $post['acf']['full_image'],
 		'eventlocation' => array(),
 		'terms' => array(),
 		'loc_terms' => array(),
@@ -105,14 +105,17 @@ function fetch_terms() {
    
     $terms = array();
     foreach ($terms_data as $term_data) {
-    	$terms[] = array(
-    		'title' => $term_data['name'],
-			'pagelink' => $term_data['link'],
-			'thumbImage' => array(
-				'ID' => $term_data['acf']['category_image']['ID'],
-				'url' => $term_data['acf']['category_image']['url']
-			),
-		);
+    	// Check if term is a parent term and it is not empty
+        if ($term_data['parent'] == 0 && $term_data['count'] > 0) {
+	    	$terms[] = array(
+	    		'title' => $term_data['name'],
+				'pagelink' => $term_data['link'],
+				'thumbImage' => array(
+					'ID' => $term_data['acf']['category_image']['ID'],
+					'url' => $term_data['acf']['category_image']['url']
+				),
+			);
+	    }
     }
 
     // Return the terms

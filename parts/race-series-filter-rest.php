@@ -6,10 +6,22 @@ $canceledImage = THEMEURI . "images/canceled.svg";
 $portrait_spacer = THEMEURI . "images/portrait.png";
 
 
+/*
+
+	This page merges different content types 
+
+	* the Race Post type 'race'
+	* Instruction Type taxonomy 'instruction_type' Post Type 'instructions'
+	* Page 'Children of Instruction' ID = 298
+
+*/
 
 
+/*
 
+	Pull Race Posts First
 
+*/
 function get_race_posts() {
   $url = 'https://center.whitewater.org/wp-json/wp/v2/race?per_page=99';
   $response = wp_remote_get($url);
@@ -17,12 +29,6 @@ function get_race_posts() {
     return false;
   }
   $posts = json_decode( wp_remote_retrieve_body( $response ), true );
-
-
-
-// echo '<pre>';
-// print_r($posts);
-// echo '</pre>';
 
 
   $race_posts = array();
@@ -70,7 +76,6 @@ function get_race_posts() {
 	foreach ($race_post['eventlocation'] as $location) {
       if ($location['value'] === 'pisgah') {
         $race_posts[] = $race_post;
-        // break;
       }
     }
 
@@ -79,9 +84,15 @@ function get_race_posts() {
 }
 
 $races = get_race_posts();
+// echo '<pre>';
+// print_r($races);
+// echo '</pre>';
 
+/*
 
+	Pull the Instruction_type terms
 
+*/
 function fetch_terms() {
     // URL to fetch terms from
     $url = 'https://center.whitewater.org/wp-json/wp/v2/instruction_type?post_type=instructions&per_page=100&acf_format=standard';
@@ -107,29 +118,74 @@ function fetch_terms() {
     foreach ($terms_data as $term_data) {
     	// Check if term is a parent term and it is not empty
         if ($term_data['parent'] == 0 && $term_data['count'] > 0) {
-	    	$terms[] = array(
-	    		'title' => $term_data['name'],
-				'pagelink' => $term_data['link'],
-				'thumbImage' => array(
-					'ID' => $term_data['acf']['category_image']['ID'],
-					'url' => $term_data['acf']['category_image']['url']
-				),
-			);
+        	if(in_array( 'pisgah', $term_data['acf']['eventlocation'] )) {
+		    	$terms[] = array(
+		    		'title' => $term_data['name'],
+					'pagelink' => $term_data['link'],
+					'locationname' => $term_data['acf']['eventlocation_text'],
+					'thumbImage' => array(
+						'ID' => $term_data['acf']['category_image']['ID'],
+						'url' => $term_data['acf']['category_image']['url']
+					),
+				);
+			}
 	    }
     }
 
     // Return the terms
     return $terms;
 }
-
-
 $terms = fetch_terms();
-
-
-
 
 // echo '<pre>';
 // print_r($terms);
+// echo '</pre>';
+/*
+
+	Now we fetch the Instruction Page Child pages
+
+*/
+function get_children_of_page_id($page_id, $limit = 50) {
+
+  // Get the API URL.
+  $url = 'https://center.whitewater.org/wp-json/wp/v2/pages?parent=' . $page_id . '&per_page=' . $limit.'&acf_format=standard';
+
+  // Make the API request.
+  $response = wp_remote_get($url);
+
+  // Check the response code.
+  if (wp_remote_retrieve_response_code($response) !== 200) {
+    // There was an error.
+    return [];
+  }
+
+  // Decode the JSON response.
+  $child_pages = json_decode(wp_remote_retrieve_body($response), true);
+
+  // Initialize an array to store the titles.
+  $cPages = array();
+
+  // Loop through the pages and add their titles to the array.
+  foreach ($child_pages as $page) {
+    $cPages[] = array(
+		'title' => $page['title']['rendered'],
+		'pagelink' => $page['link'],
+		'locationname' => $page['acf']['eventlocation_text'],
+		'thumbImage' => array(
+			'url' => $page['acf']['mobile-banner']['url']
+		),
+	);
+  }
+
+  // Return the children pages.
+  return $cPages;
+
+}
+
+$cPages = get_children_of_page_id(298);
+
+// echo '<pre>';
+// print_r($cPages);
 // echo '</pre>';
 
 $i=1; 
@@ -251,6 +307,7 @@ $i=1;
 		      <?php 
 		      // merge everythig else
 		      $finalArray = array_merge( $sorted_events, $terms );
+		      $finalArray = array_merge( $finalArray, $cPages );
 		      // echo '<pre>';
 		      // print_r($finalArray);
 		      // echo '</pre>';

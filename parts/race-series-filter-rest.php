@@ -43,7 +43,8 @@ function get_race_posts() {
 		'event_date' => $event_date,
 		'short_description' => $short_description,
 		'eventStatus' => ( $post['acf']['eventstatus'] ) ? $post['acf']['eventstatus']:'upcoming',
-		'thumbImage' => $post['acf']['full_image'],
+		'thumbImage' => $post['acf']['thumbnail_image'],
+		// 'thumbImage' => $post['acf']['full_image'],
 		'eventlocation' => array(),
 		'terms' => array(),
 		'loc_terms' => array(),
@@ -124,9 +125,13 @@ function fetch_terms() {
 					'pagelink' => $term_data['link'],
 					'locationname' => $term_data['acf']['eventlocation_text'],
 					'thumbImage' => array(
-						'ID' => $term_data['acf']['category_image']['ID'],
-						'url' => $term_data['acf']['category_image']['url']
+						'ID' => $term_data['acf']['vertical_image']['ID'],
+						'url' => $term_data['acf']['vertical_image']['url']
 					),
+					// 'thumbImage' => array(
+					// 	'ID' => $term_data['acf']['category_image']['ID'],
+					// 	'url' => $term_data['acf']['category_image']['url']
+					// ),
 				);
 			}
 	    }
@@ -167,14 +172,17 @@ function get_children_of_page_id($page_id, $limit = 50) {
 
   // Loop through the pages and add their titles to the array.
   foreach ($child_pages as $page) {
-    $cPages[] = array(
-		'title' => $page['title']['rendered'],
-		'pagelink' => $page['link'],
-		'locationname' => $page['acf']['eventlocation_text'],
-		'thumbImage' => array(
-			'url' => $page['acf']['mobile-banner']['url']
-		),
-	);
+  	if( in_array('pisgah', $page['acf']['eventlocation']) ){
+	    $cPages[] = array(
+			'title' => $page['title']['rendered'],
+			'pagelink' => $page['link'],
+			'locationname' => $page['acf']['eventlocation_text'],
+			'thumbImage' => array(
+				'url' => $page['acf']['vertical_image']['url']
+				// 'url' => $page['acf']['mobile-banner']['url']
+			),
+		);
+	}
   }
 
   // Return the children pages.
@@ -185,7 +193,7 @@ function get_children_of_page_id($page_id, $limit = 50) {
 $cPages = get_children_of_page_id(298);
 
 // echo '<pre>';
-// print_r($cPages);
+// print_r($child_pages);
 // echo '</pre>';
 
 $i=1; 
